@@ -8,21 +8,28 @@ import Swal from 'sweetalert2';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-role:String | null | undefined;
+  role: String | null | undefined;
 
   constructor(private router: Router) { }
-
   ngOnInit(): void {
-    this.role=localStorage.getItem("role")
+
+  }
+  ngAfterViewChecked(): void {
+    //Called after every check of the component's view. Applies to components only.
+    //Add 'implements AfterViewChecked' to the class.
+    this.role = localStorage.getItem("role")
+
   }
 
-  toggleSignIn(){
-    if(this.role==null){
+  toggleSignIn() {
+    if (this.role == null) {
       this.router.navigate(["/login"])
-    }else{
-      Swal.fire('You have successfully logged out').then(()=>{localStorage.clear()
-        window.location.reload()
-    })
+    } else {
+      Swal.fire('You have successfully logged out').then(() => {
+        localStorage.clear()
+        this.router.navigate([""])
+
+      })
     }
   }
 }

@@ -1,76 +1,37 @@
-<mat-toolbar class="mat-elevation-z8">
-    <button
-      mat-icon-button
-      *ngIf="sidenav.mode === 'over'"
-      (click)="sidenav.toggle()">
-      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
-      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
-</button>
-    
-    <nav class="nav container" style=" padding: 25px 60px;">
-        <h2 class="nav_logo text"><a href="#"><a style="color: black;"><b>Blog</b></a><a style="color:#f12b20;"><b>Stack</b></a></a></h2>
-        <div class="menu_items" *ngIf="role!='admin'">
-            <div class="container" style="padding-right: 600px;">
-              <div class="row" style="width: 350%;">
-                <div class="col-xs-12" style="padding-left: 20%;">
-                  <input class="form-control" ng-model="search" type="text" placeholder="Search Blogs" >
+<div class="container">
+    <div class="header-container">
+        <div class="row">
+            <div class="col-10">
+                <div class="col-sm-5 col-md-6">
+                    <h3>{{questionList.length}} Questions</h3>
                 </div>
-              </div>
             </div>
+
+            <div class="col-2"><button mat-raised-button type="button" color="warn" (click)="postQuestion()">Ask
+                    Question</button></div>
         </div>
-        <img src="../../assets/bars.svg" alt="timesicon" id="menu_toggle" />
-    </nav>
-</mat-toolbar>
-  
-  <mat-sidenav-container>
-    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
-      <img class="avatar mat-elevation-z8" src="../../../assets/admin.png"/>
-      <div>
-      <h4 class="name">Admin</h4>
-      <a routerLink="/update-profile">EDIT </a>
-      </div>
-  
-    <app-user-profile></app-user-profile>
-  
-      <button mat-button class="menu-button" routerLink="">
-        <mat-icon>home</mat-icon>
-        <span>Home</span></button>
-      
-      <button mat-button class="menu-button" routerLink="/user-list" *ngIf="role=='admin'">
-        <mat-icon>perm_identity</mat-icon>
-        <span>Admin</span></button>
-  
-      <button mat-button class="menu-button" routerLink="/login" *ngIf="role==null">
-        <mat-icon>person</mat-icon>
-        <span>Login</span></button>
-  
-      <button mat-button class="menu-button" routerLink="/blogs" *ngIf="role!='admin'">
-        <mat-icon>dashboard</mat-icon>
-        <span>Blog</span>
-      </button>
-      
-      <button mat-button class="menu-button" routerLink="" *ngIf="role=='admin'">
-        <mat-icon>settings</mat-icon>
-        <span>Settings</span></button>
-  
-      <button mat-button class="menu-button" routerLink="/contact">
-        <mat-icon>help</mat-icon>
-        <span>Help</span></button>
-      
-      <button mat-button class="menu-button" (click)="logout()" *ngIf="role !=null">
-        <mat-icon>logout</mat-icon>
-        <span>Logout</span></button>
-    </mat-sidenav>
-    
-    <mat-sidenav-content>
-      <div class="content mat-elevation-z8">
-        <div class="container">
-          <div class="row">
-            <div class="col-9">.col-9</div>
-            <div class="col-4">.col-4<br>Since 9 + 4 = 13 &gt; 12, this 4-column-wide div gets wrapped onto a new line as one contiguous unit.</div>
-            <div class="col-6">.col-6<br>Subsequent columns continue along the new line.</div>
-          </div>
+    </div>
+    <!-- <div class="content mat-elevation-z8"> -->
+    <div class="container">
+        <!-- <div class="row"> -->
+        <div *ngFor="let q of questionList">
+            <mat-card>
+                <mat-card-content>
+                    <mat-list>
+                        <mat-list-item>{{q.question}}</mat-list-item>
+                        <mat-divider></mat-divider>
+                        <br>
+                        <mat-list-item>
+                            <span class="span-ellipsis">{{q.answers[0].answer}}</span>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
         </div>
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>  
+        <!-- </div> -->
+    </div>
+    <!-- </div> -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" showFirstLastButtons
+        aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>

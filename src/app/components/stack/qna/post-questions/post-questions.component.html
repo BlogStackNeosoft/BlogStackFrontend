@@ -1,0 +1,147 @@
+<div class="container">
+    <div class="row">
+        <h1 id="toggle-linear" class="text-center">
+            <h3> Ask Question</h3>
+        </h1>
+        <br>
+        <!-- <div class="header-container z-depth-5" >
+      <h3> Ask Question</h3>
+     </div> -->
+
+ 
+     <mat-stepper class="stepper" #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+          <div class="stepper-container">
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel>Describe your question</ng-template>
+              <mat-form-field class="question-form">
+                <mat-label>Question</mat-label>
+                <textarea class="question-area" matInput matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10" formControlName="questionCtrl"></textarea>
+                <!-- <input matInput placeholder="Question description" formControlName="firstCtrl" required> -->
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </div>
+        </mat-step> 
+
+            <mat-step [stepControl]="secondFormGroup">
+                <form [formGroup]="secondFormGroup">
+                  <div class="stepper-container">
+                    <ng-template matStepLabel>What your question is about</ng-template>
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-6"> <mat-form-field>
+                            <mat-label>Category</mat-label>
+                            <mat-select formControlName="categoryCtrl">
+                              <mat-option *ngFor="let category of categories" [value]="category">
+                                {{category}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+        
+                        <div class="col-6">
+                          <mat-form-field>
+                            <mat-label>Subcategory</mat-label>
+                            <mat-select formControlName="subcategoryCtrl">
+                              <mat-option *ngFor="let category of categories" [value]="category">
+                                {{category}}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </div>
+        
+                        <div class="col-12">
+                          <mat-form-field class="example-chip-list" appearance="fill">
+                            <mat-label>Tags</mat-label>
+                            <mat-chip-list #chipList aria-label="Tag selection">
+                              <mat-chip *ngFor="let tag of tags" (removed)="remove(tag)">
+                                {{tag}}
+                                <button matChipRemove>
+                                  <mat-icon>cancel</mat-icon>
+                                </button>
+                              </mat-chip>
+                              <input placeholder="Add tags..." #tagInput [formControl]="tagCtrl" [matAutocomplete]="auto"
+                                [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                (matChipInputTokenEnd)="add($event)">
+                            </mat-chip-list>
+                            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                              <mat-option *ngFor="let tag of filteredTags | async" [value]="tag">
+                                {{tag}}
+                              </mat-option>
+                            </mat-autocomplete>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <button mat-button matStepperPrevious>Back</button>
+                      <button mat-button matStepperNext>Next</button>
+                    </div>
+                  </div>
+                </form>
+              </mat-step>
+
+            <mat-step [stepControl]="thirdFormGroup" [optional]="isOptional">
+                <form [formGroup]="thirdFormGroup">
+                  <div class="stepper-container">
+                    <ng-template matStepLabel>Code Snippet</ng-template>
+                    <mat-form-field class="question-form">
+                      <mat-label>Code Snippet</mat-label>
+                      <textarea class="question-area" matInput matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                        cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10" formControlName="codeCtrl"></textarea>
+                    </mat-form-field>
+                    <div>
+                      <button mat-button matStepperPrevious>Back</button>
+                      <button mat-button matStepperNext (click)="postQuestion()">Next</button>
+                    </div>
+                  </div>
+                </form>
+              </mat-step>
+
+            <mat-step>
+                <ng-template matStepLabel>Review and submit</ng-template>
+                <div class="stepper-container">
+        
+                  <div class="container-fluid text-center">
+                    <div class="row">
+                      <div class="col-6 content">
+                        <h5>Question</h5>
+                        {{postQuestionBean.question}}
+                      </div>
+                      <div class="col-6 content">
+                        <h5>Code snippet</h5>
+                        {{postQuestionBean.codeSnippet}}
+                      </div>
+                    </div>
+                    
+                    <div class="row gx-5">
+                      <div class="col-4">
+                        <h5>Category</h5>
+                        {{postQuestionBean.categoryId}}
+                      </div>
+                      <div class="col-4">
+                        <h5>Subcategory</h5>
+                        {{postQuestionBean.subCategoryId}}
+                      </div>
+                      <div class="col-4">
+                        <h5>Tag</h5>
+                        {{postQuestionBean.tagId}}
+                      </div>
+                    </div>
+                  </div>
+                
+                  <div>
+                    <button mat-button matStepperPrevious>Back</button>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                    <button mat-button (click)="postQuestion()">submit</button>
+                  </div>
+                </div>
+            </mat-step>
+
+        </mat-stepper>
+    </div>
+</div>

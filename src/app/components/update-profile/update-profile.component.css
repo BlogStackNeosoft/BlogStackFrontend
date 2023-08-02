@@ -1,4 +1,4 @@
-mat-toolbar {
+/* mat-toolbar {
     background: white;
     color: white;
   }
@@ -89,7 +89,7 @@ mat-toolbar {
 mat-tab-group{
     width:60%
   }
-  
+   */
   .example-form {
     min-width: 150px;
     max-width: 500px;
@@ -103,52 +103,18 @@ mat-tab-group{
   .file-input{
     display: none;
   }
-
-  .photo-preview{
-    width: 100% !important;
-    max-width: 125px !important;
-    height: 100% !important;
-    max-height: 125px!important;
-    border-radius: 50% !important;
-  }
-
-  .middle-profilepic {
-    transition: .5s ease;
-    opacity: 0;
-    position: absolute;
-    text-align: center;
-  }
   
-  .container-profilepic:hover .photo-preview {
-    opacity: 0.3;
-  }
-  
-  .container-profilepic:hover .middle-profilepic {
-    opacity: 1;
-  }
-  
-  .text-profilepic {
-    color: green;
-    font-size: 16px;
-  }
 
 
-.file-input {
-  display: none; /* Hide the default file input style */
-}
 
-.container-profilepic {
-  /* Other styles... */
-  margin-bottom: 20px; /* Add some space between the profile picture and other form fields */
-}
 .circular-image {
-  width: 150px; /* Default width */
-  height: 150px; /* Default height */
+  width: 300px; /* Default width */
+  height: 300px; /* Default height */
   border-radius: 50%;
-  overflow: hidden;
-  display: inline-block;
+  /* overflow: hidden; */
+  /* display: inline-block; */
   border: 2px solid #ccc; /* Optional: Add a border to the circular image */
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add a box shadow */
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); Optional: Add a box shadow */
 }
 
 .circular-image img {
@@ -157,18 +123,11 @@ mat-tab-group{
   object-fit: cover;
 }
 
-/* Media query for smaller screens */
-@media (max-width: 768px) {
-  .circular-image {
-    width: 100px;
-    height: 100px;
-  }
-}
 
-/* Media query for even smaller screens */
-@media (max-width: 576px) {
-  .circular-image {
-    width: 80px;
-    height: 80px;
+i{
+   position: absolute;
+  cursor: pointer;
+  left: 46%;
+  top:12%;
+  font-size: xx-large;
   }
-}

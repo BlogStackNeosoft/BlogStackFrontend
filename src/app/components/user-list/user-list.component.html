@@ -1,4 +1,4 @@
-<mat-toolbar class="mat-elevation-z8">
+<!-- <mat-toolbar class="mat-elevation-z8">
     <button
       mat-icon-button
       *ngIf="sidenav.mode === 'over'"
@@ -39,37 +39,41 @@
 
     </mat-sidenav>
     <mat-sidenav-content>
-      <div class="content mat-elevation-z8">
-        <div class="container" style="padding-top: 2%;">
-          <nav class="navbar">
-          <input class="form-control" type="text" placeholder="find user"></nav>
-          <div class="mat-elevation-z8">
-            <table class="table table-stripped text-center">
-                <thead>
-                    <tr>
-                        <th> Email-Id </th>
-                        <th> First Name </th>
-                        <th> Last Name </th>
-                        <th> Status </th>
-                        <th colspan="2"> Actions </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let user of userList">
-                        <td> {{ user.email_id }} </td>
-                        <td> {{ user.first_name }} </td>
-                        <td> {{ user.last_name }} </td>
-                        <td> {{ user.status}} <mat-slide-toggle [checked]="user.status=='ACTIVE'" disabled="true" color="warn"></mat-slide-toggle></td>
-                        <td><button type="button" class="btn btn-dark" (click) = "updateUser(user)" style="color: white;">Update</button></td>
-                        <td><button type="button" class= "btn btn-danger" (click)= "deleteUser(user)" style="color: white;">Delete</button></td>
-                    </tr>
-                </tbody>
-            </table>
-            <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" showFirstLastButtons
-                  aria-label="Select page of periodic elements">
-          </mat-paginator>
-          </div>
-          </div>   
-        </div>
+      <div class="content mat-elevation-z8"> -->
+<div class="container" style="padding-top: 2%;">
+  <nav class="navbar">
+    <input class="form-control" type="text" placeholder="find user">
+  </nav>
+  <div class="mat-elevation-z8">
+    <table class="table table-stripped text-center">
+      <thead>
+        <tr>
+          <th> Email-Id </th>
+          <th> First Name </th>
+          <th> Last Name </th>
+          <th> Status </th>
+          <th colspan="2"> Actions </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of userList">
+          <td> {{ user.email_id }} </td>
+          <td> {{ user.first_name }} </td>
+          <td> {{ user.last_name }} </td>
+          <td> {{ user.status}} <mat-slide-toggle [checked]="user.status=='ACTIVE'" disabled="true"
+              color="warn"></mat-slide-toggle></td>
+          <td><button type="button" class="btn btn-dark" (click)="updateUser(user)"
+              style="color: white;">Update</button></td>
+          <td><button type="button" class="btn btn-danger" (click)="deleteUser(user)"
+              style="color: white;">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" showFirstLastButtons
+      aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+</div>
+<!-- </div>
     </mat-sidenav-content>
-  </mat-sidenav-container>  
+  </mat-sidenav-container>   -->

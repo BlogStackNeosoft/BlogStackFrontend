@@ -1,1 +1,83 @@
-<router-outlet></router-outlet>
+<!-- <app-navbar></app-navbar> -->
+<div>
+    <mat-toolbar class="mat-elevation-z8">
+        <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+            <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+            <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
+        </button>
+
+        <nav class="nav container" style=" padding: 25px 60px;">
+            <h2 class="nav_logo text"><a href="#"><a style="color: black;"><b>Blog</b></a><a
+                        style="color:#f12b20;"><b>Stack</b></a></a></h2>
+            <!-- <div class="menu_items" *ngIf="role!='admin'">
+                <div class="container" style="padding-right: 600px;">
+                    <div class="row" style="width: 350%;">
+                        <div class="col-xs-12" style="padding-left: 20%;">
+                            <input class="form-control" ng-model="search" type="text" placeholder="Search Blogs">
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <ul class="menu_items" style="padding-top: 2%;">
+                <img src="../../assets/times.svg" alt="timesicon" id="menu_toggle" />
+                <li class="nav_link"><a routerLink="/home" class="nav_link"><b>Home</b></a></li>
+                <li class="nav_link"><a routerLink="/about" class=" nav_link"><b>About</b></a></li>
+
+                <li class="nav_link"><a routerLink="/blogs" class="nav_link"><b>Blogs</b></a></li>
+                <li class="nav_link"><a routerLink="/stack" class="nav_link"><b>Stack</b></a></li>
+                <li class="nav_link"><a routerLink="/contact" class="nav_link"><b>Contact</b></a></li>
+                <li class="nav_link" *ngIf="role=='admin'"><a routerLink="/contact" class="nav_link"><b>Admin
+                            DashBoard</b></a></li>
+                <li class="nav_link"><a (click)="toggleSignIn()" class="nav_link"><b *ngIf="role!=null"
+                            style="cursor: pointer;text-decoration: underline;">SignOut</b>
+                        <b *ngIf="role==null" style="cursor: pointer;">SignIn</b></a></li>
+            </ul>
+
+            <img src="../../assets/bars.svg" alt="timesicon" id="menu_toggle" />
+        </nav>
+    </mat-toolbar>
+
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8" (click)="sidenav.toggle()">
+            <img class="avatar" src="../../../assets/admin.png" /> <i class="bi bi-pencil-square" style="color: black;"
+                (click)="updateProfile()" *ngIf="role!=null"></i>
+            <h4 class="name">Admin</h4>
+
+            <app-user-profile></app-user-profile>
+
+            <button mat-button class="menu-button" routerLink="">
+                <mat-icon>home</mat-icon>
+                <span>Home</span></button>
+
+            <button mat-button class="menu-button" routerLink="/user-list" *ngIf="role=='admin'">
+                <mat-icon>perm_identity</mat-icon>
+                <span>Admin</span></button>
+
+            <button mat-button class="menu-button" routerLink="/login" *ngIf="role==null">
+                <mat-icon>person</mat-icon>
+                <span>Login</span></button>
+
+            <button mat-button class="menu-button" routerLink="/stack" *ngIf="role!='admin'">
+                <mat-icon>dashboard</mat-icon>
+                <span>Stack</span>
+            </button>
+
+            <button mat-button class="menu-button" routerLink="" *ngIf="role=='admin'">
+                <mat-icon>settings</mat-icon>
+                <span>Settings</span></button>
+
+            <button mat-button class="menu-button" routerLink="/contact">
+                <mat-icon>help</mat-icon>
+                <span>Help</span></button>
+
+            <button mat-button class="menu-button" (click)="logout()" *ngIf="role !=null">
+                <mat-icon>logout</mat-icon>
+                <span>Logout</span></button>
+
+        </mat-sidenav>
+        <mat-sidenav-content style="padding-top: 2%;">
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

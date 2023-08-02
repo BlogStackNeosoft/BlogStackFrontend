@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
 
 * {
   margin: 0;
@@ -6,6 +7,7 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   overflow: hidden;
+  /* background-color: white; */
 }
 
 .menu_items {
@@ -22,6 +24,10 @@ a {
 #menu_toggle {
   display: none;
 }
+/* 
+ button{
+    color: #f12b20;
+  } */
 
 
 html, body { height: 100%; }

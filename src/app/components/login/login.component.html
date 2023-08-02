@@ -1,9 +1,9 @@
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar> -->
 
 <div class="container">
   <div class="row">
-    <div class="col-6">
-      <mat-tab-group>
+    <div class="col-6" style="padding-top: 2%;">
+      <mat-tab-group (focusChange)="tabChanged()">
         <mat-tab label="Login">
           <form class="example-form" [formGroup]="LoginForm">
             <div style="padding: 20px">
@@ -13,11 +13,15 @@
               </mat-form-field>
               <mat-form-field class="example-full-width">
                 <mat-label>Password</mat-label>
-                <input matInput placeholder="Password" formControlName="password" type="password" />
+                <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="Password"
+                  formControlName="password" type="password" />
+                <mat-icon matSuffix (click)="showPassword=!showPassword">{{showPassword ?
+                  'visibility':'visibility_off'}}</mat-icon>
               </mat-form-field>
             </div>
           </form>
-          <button mat-raised-button color="warn" class="btnstyle" (click)="login()">Login</button>
+          <button mat-raised-button color="warn" class="btnstyle" [disabled]="!LoginForm.valid"
+            (click)="login()">Login</button>
         </mat-tab>
 
         <mat-tab label="SignUp">
@@ -37,21 +41,28 @@
               </mat-form-field>
               <mat-form-field class="example-full-width">
                 <mat-label>Password</mat-label>
-                <input matInput placeholder="Password" formControlName="password" type="password" />
+                <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="Password"
+                  formControlName="password" type="password" />
+                <mat-icon matSuffix (click)="showPassword = !showPassword">{{showPassword ?
+                  'visibility':'visibility_off'}}</mat-icon>
               </mat-form-field>
               <mat-form-field class="example-full-width">
                 <mat-label>Confirm Password</mat-label>
-                <input matInput placeholder="Password" formControlName="confirmPassword" type="password" />
+                <input matInput [type]="showConfirmPassword ? 'text' : 'password'" placeholder="Confirm Password"
+                  formControlName="confirmPassword" type="password" />
+                <mat-icon matSuffix (click)="showConfirmPassword=!showConfirmPassword">{{showConfirmPassword ?
+                  'visibility':'visibility_off'}}</mat-icon>
               </mat-form-field>
             </div>
           </form>
-          <button mat-raised-button color="warn" class="btnstyle" (click)="signUpForm()">SignUp</button>
+          <button mat-raised-button color="warn" class="btnstyle" (click)="signUpForm()"
+            [disabled]="!signUp.valid">SignUp</button>
         </mat-tab>
       </mat-tab-group>
     </div>
 
-    <div class="col-6">
-      <img src="../../assets/hero.gif" alt="heroImg" />
+    <div class="col-6" style="margin-top: -10%;padding-right: 0%;">
+      <img src="../../../assets/hero.gif" alt="heroImg" style="" />
     </div>
   </div>
 </div>
