@@ -24,8 +24,7 @@ import { CategoryComponent } from './components/category/category.component';
 @NgModule({
   declarations: [
     PostQuestionsComponent,
-    QuestionListComponent,
-    CategoryComponent
+    QuestionListComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +48,7 @@ import { CategoryComponent } from './components/category/category.component';
   exports: [
     QnaRoutingModule,
     QuestionListComponent,
-    CategoryComponent,
+    PostQuestionsComponent,
     PostQuestionsComponent
   ],
 })

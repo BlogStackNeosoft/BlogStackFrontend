@@ -62,7 +62,6 @@ export class StackComponent implements OnInit {
       console.log("Questions", data);
       this.questionList = data.data.payload
       console.log("questionList", this.questionList);
-
     })
   }
 
@@ -74,4 +73,6 @@ export class StackComponent implements OnInit {
   sectionClicked(section:string){
     this.section=section;
   }
+
+  
 }
