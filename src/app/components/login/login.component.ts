@@ -97,7 +97,6 @@ export class LoginComponent implements OnInit {
   login() {
     console.log('value of login form', this.LoginForm.value);
     this.authService.login(this.LoginForm.value).subscribe((data) => {
-      // console.log(data);
       console.log(data.status)
       if(data.status){
         console.log(event);
@@ -107,12 +106,9 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('user_id', data.data.user_id);
         localStorage.setItem('refresh_token', data.data.refresh_token);
         localStorage.setItem('role',data.data.user_roles[0]);
-        // if (data.data.user_id == 'atiya@gmail.com') {
-        //   localStorage.setItem('role', 'admin');
-        // } else localStorage.setItem('role', 'user');
         Swal.fire('Successfully Login').then(() => {
           if (localStorage.getItem('role') == 'admin') {
-            this.router.navigate(['/user-list']);
+            this.router.navigate(['/admin/user-list']);
           } else {
             this.router.navigate(['/blogs']);
           }

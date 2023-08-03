@@ -23,7 +23,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { StackComponent } from './components/stack/stack.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { UserListComponent } from './components/user-list/user-list.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { AboutComponent } from './components/about/about.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -40,6 +39,8 @@ import { QnaModule } from './components/stack/qna/qna.module';
 import { QuestionsByCategoryComponent } from './components/questions-by-category/questions-by-category.component';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { AuthService } from './service/auth.service';
+import { AdminModule } from './components/Admin/admin.module';
+
 
 @NgModule({
     declarations: [
@@ -52,13 +53,12 @@ import { AuthService } from './service/auth.service';
         StackComponent,
         ContactComponent,
         UserProfileComponent,
-        UserListComponent,
         UpdateUserComponent,
         UpdateProfileComponent,
         RoutingErrorComponent,
         CategoryComponent,
         ServiceUnavailableComponent,
-        QuestionsByCategoryComponent
+        QuestionsByCategoryComponent,
     ],
 
     imports: [
@@ -84,7 +84,8 @@ import { AuthService } from './service/auth.service';
         MatSelectModule,
         MatListModule,
         MatCardModule,
-        QnaModule
+        QnaModule,
+        AdminModule
     ],
 
 exports: [],
