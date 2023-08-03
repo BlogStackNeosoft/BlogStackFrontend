@@ -101,9 +101,10 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('jwt_token', data.data.jwt_token);
         localStorage.setItem('user_id', data.data.user_id);
         localStorage.setItem('refresh_token', data.data.refresh_token);
-        if (data.data.user_id == 'atiya@gmail.com') {
-          localStorage.setItem('role', 'admin');
-        } else localStorage.setItem('role', 'user');
+        localStorage.setItem('role',data.data.user_roles[0]);
+        // if (data.data.user_id == 'atiya@gmail.com') {
+        //   localStorage.setItem('role', 'admin');
+        // } else localStorage.setItem('role', 'user');
         Swal.fire('Successfully Login').then(() => {
           if (localStorage.getItem('role') == 'admin') {
             this.router.navigate(['/user-list']);
