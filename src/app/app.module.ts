@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -23,70 +23,81 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { StackComponent } from './components/stack/stack.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { UserListComponent } from './components/user-list/user-list.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { AboutComponent } from './components/about/about.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatNativeDateModule } from '@angular/material/core';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-import { CategoryComponent } from './components/stack/qna/components/category/category.component';
+import { CategoryComponent } from './components/category/category.component';
 import { ServiceUnavailableComponent } from './components/service-unavailable/service-unavailable.component';
 import { RoutingErrorComponent } from './components/routing-error/routing-error.component';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { QnaModule } from './components/stack/qna/qna.module';
-import { QuestionsByCategoryComponent } from './components/stack/qna/components/questions-by-category/questions-by-category.component';
+import { QuestionsByCategoryComponent } from './components/questions-by-category/questions-by-category.component';
+import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
+import { AuthService } from './service/auth.service';
+import { AdminModule } from './components/Admin/admin.module';
+
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    AboutComponent,
-    LoginComponent,
-    NavbarComponent,
-    BlogsComponent,
-    StackComponent,
-    ContactComponent,
-    UserProfileComponent,
-    UserListComponent,
-    UpdateUserComponent,
-    UpdateProfileComponent,
-    RoutingErrorComponent,
-    CategoryComponent,
-    ServiceUnavailableComponent,
-    QuestionsByCategoryComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatTableModule,
-    MatSlideToggleModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSelectModule,
-    MatListModule,
-    MatCardModule,
-    QnaModule
-  ],
-  exports: [StackComponent,
-            CategoryComponent],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        AboutComponent,
+        LoginComponent,
+        NavbarComponent,
+        BlogsComponent,
+        StackComponent,
+        ContactComponent,
+        UserProfileComponent,
+        UpdateUserComponent,
+        UpdateProfileComponent,
+        RoutingErrorComponent,
+        CategoryComponent,
+        ServiceUnavailableComponent,
+        QuestionsByCategoryComponent,
+    ],
 
-  providers: [],
-  bootstrap: [AppComponent]
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatButtonModule,
+        MatTabsModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatIconModule,
+        MatTooltipModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatFormFieldModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatTableModule,
+        MatSlideToggleModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSelectModule,
+        MatListModule,
+        MatCardModule,
+        QnaModule,
+        AdminModule
+    ],
+
+exports: [],
+
+providers: [AuthService,
+  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthenticationInterceptor,
+    multi: true
+  }
+],
+bootstrap: [AppComponent]
 })
 export class AppModule { }
