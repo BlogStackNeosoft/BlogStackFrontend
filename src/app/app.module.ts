@@ -37,6 +37,9 @@ import { RoutingErrorComponent } from './components/routing-error/routing-error.
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { QnaModule } from './components/stack/qna/qna.module';
+import { QuestionsByCategoryComponent } from './components/questions-by-category/questions-by-category.component';
+import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
+import { AuthService } from './service/auth.service';
 
 @NgModule({
   declarations: [
@@ -80,8 +83,6 @@ import { QnaModule } from './components/stack/qna/qna.module';
     MatSelectModule,
     MatListModule,
     MatCardModule,
-
-
 
   ],
   exports: [],
