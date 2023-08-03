@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: "question-list", component:QuestionListComponent},
   {path: "categories", component: CategoryComponent},
   {path: "question-by-category", component: QuestionsByCategoryComponent },
-  {path:"",component:QuestionListComponent}
+  {path:"",component:QuestionListComponent},
+  { path: "categories", component: CategoryComponent }
 ];
 
 @NgModule({

@@ -69,5 +69,7 @@ export class QuestionListComponent implements OnInit {
 
   postQuestion() {
     this.router.navigate(['stack/post-question'])
+    this.router.navigate(["stack/post-question"]);
+
   }
 }

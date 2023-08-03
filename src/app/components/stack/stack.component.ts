@@ -65,9 +65,9 @@ export class StackComponent implements OnInit {
     })
   }
 
-  postQuestion() {
-    this.router.navigate(['/post-question'])
-  }
+  // postQuestion() {
+  //   this.router.navigate(['/post-question'])
+  // }
   
   section:string="question";
   sectionClicked(section:string){

@@ -33,8 +33,12 @@ export class AuthService {
     return this.httpClient.post<any>(this.baseUrl+"/refresh-token"+localStorage.getItem('refresh-token'), " ")
   }
 
-  signOut() {
+  public signOut() {
     localStorage.clear();
     Swal.fire('Successfully Logout').then(()=>{this.router.navigate([""])})
+  }
+
+  public getToken() {
+    return localStorage.getItem("jwt_token")
   }
 }
