@@ -9,25 +9,33 @@
      </div> -->
 
  
-     <mat-stepper class="stepper" #stepper>
-        <mat-step [stepControl]="firstFormGroup">
-          <div class="stepper-container">
+     <mat-stepper class="stepper" linear #stepper>
+        <mat-step [stepControl]="firstFormGroup" completed="false" >
+          <div class="stepper-container">   
             <form [formGroup]="firstFormGroup">
               <ng-template matStepLabel>Describe your question</ng-template>
+
               <mat-form-field class="question-form">
-                <mat-label>Question</mat-label>
+                <mat-label>Question Title</mat-label>
+                <textarea class="question-area" matInput matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10" formControlName="titleCtrl"></textarea>
+                <!-- <input matInput placeholder="Question description" formControlName="firstCtrl" required> -->
+              </mat-form-field>
+
+              <mat-form-field class="question-form">
+                <mat-label>Question Content</mat-label>
                 <textarea class="question-area" matInput matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
                   cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10" formControlName="questionCtrl"></textarea>
                 <!-- <input matInput placeholder="Question description" formControlName="firstCtrl" required> -->
               </mat-form-field>
               <div>
-                <button mat-button matStepperNext>Next</button>
+                <button mat-button matStepperNext [disabled]="!firstFormGroup.valid">Next</button>
               </div>
             </form>
           </div>
         </mat-step> 
 
-            <mat-step [stepControl]="secondFormGroup">
+            <mat-step [stepControl]="secondFormGroup" completed="false">
                 <form [formGroup]="secondFormGroup">
                   <div class="stepper-container">
                     <ng-template matStepLabel>What your question is about</ng-template>
@@ -85,7 +93,7 @@
                 </form>
               </mat-step>
 
-            <mat-step [stepControl]="thirdFormGroup" [optional]="isOptional">
+            <mat-step [stepControl]="thirdFormGroup" [optional]="isOptional" completed="false">
                 <form [formGroup]="thirdFormGroup">
                   <div class="stepper-container">
                     <ng-template matStepLabel>Code Snippet</ng-template>
@@ -102,46 +110,48 @@
                 </form>
               </mat-step>
 
-            <mat-step>
+            <mat-step completed="false">
                 <ng-template matStepLabel>Review and submit</ng-template>
                 <div class="stepper-container">
-        
                   <div class="container-fluid text-center">
                     <div class="row">
-                      <div class="col-6 content">
-                        <h5>Question</h5>
-                        {{postQuestionBean.question}}
+                      <div class="col-4 content">
+                        <h5>Title</h5>
+                        {{postQuestionBean.title}}
                       </div>
-                      <div class="col-6 content">
+                      <div class="col-4 content">
+                        <h5>Question</h5>
+                        {{postQuestionBean.content}}
+                      </div>
+                      <div class="col-4 content">
                         <h5>Code snippet</h5>
-                        {{postQuestionBean.codeSnippet}}
+                        {{postQuestionBean.code_snippet}}
                       </div>
                     </div>
                     
                     <div class="row gx-5">
-                      <div class="col-4">
+                      <div class="col-4 content">
                         <h5>Category</h5>
-                        {{postQuestionBean.categoryId}}
+                        {{postQuestionBean.category_id}}
                       </div>
-                      <div class="col-4">
-                        <h5>Subcategory</h5>
-                        {{postQuestionBean.subCategoryId}}
+                      <div class="col-4 content">   
+                        <h5>Subcategory</h5>    
+                        {{postQuestionBean.sub_category_id}}
                       </div>
-                      <div class="col-4">
+                      <div class="col-4 content">
                         <h5>Tag</h5>
-                        {{postQuestionBean.tagId}}
+                        {{postQuestionBean.tag_id}}
                       </div>
                     </div>
-                  </div>
+                  </div>  
                 
                   <div>
                     <button mat-button matStepperPrevious>Back</button>
                     <button mat-button (click)="stepper.reset()">Reset</button>
                     <button mat-button (click)="postQuestion()">submit</button>
                   </div>
-                </div>
+               </div>
             </mat-step>
-
         </mat-stepper>
     </div>
 </div>

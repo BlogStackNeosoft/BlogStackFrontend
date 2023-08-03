@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PostQuestionsComponent } from './post-questions/post-questions.component';
+import { PostQuestionsComponent } from './components/post-questions/post-questions.component';
 import { QnaRoutingModule } from './qna-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,11 +13,19 @@ import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
 import { CdkTextareaAutosize, TextFieldModule } from '@angular/cdk/text-field';
 import { MatAutocompleteSelectedEvent, MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatIconModule } from '@angular/material/icon';
+import { QuestionListComponent } from './components/question-list/question-list.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
+import { MatDividerModule } from '@angular/material/divider';
+import { CategoryComponent } from './components/category/category.component';
 
 
 @NgModule({
   declarations: [
-    PostQuestionsComponent
+    PostQuestionsComponent,
+    QuestionListComponent,
+    CategoryComponent
   ],
   imports: [
     CommonModule,
@@ -33,9 +41,16 @@ import { MatIconModule } from '@angular/material/icon';
     MatChipsModule,
     MatAutocompleteModule,
     MatIconModule,
+    MatPaginatorModule,
+    MatCardModule,
+    MatListModule,
+    MatDividerModule
   ],
   exports: [
-    QnaRoutingModule
+    QnaRoutingModule,
+    QuestionListComponent,
+    CategoryComponent,
+    PostQuestionsComponent
   ],
 })
 export class QnaModule { }

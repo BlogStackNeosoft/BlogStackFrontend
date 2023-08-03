@@ -4,7 +4,8 @@ import { Observable, startWith, map } from 'rxjs';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { postQuestionBean } from 'src/app/model/model';
+import { PostQuestionBean } from 'src/app/model/model';
+import { QnaService } from 'src/app/service/qna.service';
 
 @Component({
   selector: 'app-post-questions',
@@ -23,6 +24,8 @@ export class PostQuestionsComponent implements OnInit {
   tags: string[] = ['Java'];
   allTags: string[] = ['Cobol', 'Java', 'C#', 'Ruby', 'C++', 'C'];
 
+  
+  
   @ViewChild('tagInput')
   tagInput!: ElementRef<HTMLInputElement>;
 
@@ -34,11 +37,12 @@ export class PostQuestionsComponent implements OnInit {
   ];
 
   firstFormGroup = this.fb.group({
-    questionCtrl: ['', Validators.required],
+    titleCtrl : ['', [Validators.required]],
+    questionCtrl: ['', [Validators.required]]
   });
   secondFormGroup = this.fb.group({
-    categoryCtrl: ['', Validators.required],
-    subcategoryCtrl: ['', Validators.required],
+    categoryCtrl: ['', [Validators.required]],
+    subcategoryCtrl: ['', [Validators.required]],
     // tagCtrl: ['', Validators.required],
   });
   thirdFormGroup = this.fb.group({
@@ -47,7 +51,8 @@ export class PostQuestionsComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private _formBuilder: FormBuilder
+    private _formBuilder: FormBuilder,
+    private qnaService: QnaService
   ) {
     this.filteredTags = this.tagCtrl.valueChanges.pipe(
       startWith(null),
@@ -58,16 +63,22 @@ export class PostQuestionsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  postQuestionBean: postQuestionBean=<postQuestionBean>{}
+  postQuestionBean: PostQuestionBean=<PostQuestionBean>{}
   postQuestion() { 
-    this.postQuestionBean.question = this.firstFormGroup.get('questionCtrl')?.value
-    this.postQuestionBean.categoryId = this.secondFormGroup.get('categoryCtrl')?.value
-    this.postQuestionBean.subCategoryId = this.secondFormGroup.get('subcategoryCtrl')?.value
-    this.postQuestionBean.tagId = this.secondFormGroup.get('tagCtrl')?.value
-    this.postQuestionBean.codeSnippet = this.thirdFormGroup.get('codeCtrl')?.value
+    this.postQuestionBean.content = this.firstFormGroup.get('questionCtrl')?.value
+    this.postQuestionBean.title = this.firstFormGroup.get('titleCtrl')?.value
+    this.postQuestionBean.category_id = this.secondFormGroup.get('categoryCtrl')?.value
+    this.postQuestionBean.sub_category_id = this.secondFormGroup.get('subcategoryCtrl')?.value
+    this.postQuestionBean.tag_id = this.secondFormGroup.get('tagCtrl')?.value
+    this.postQuestionBean.code_snippet = this.thirdFormGroup.get('codeCtrl')?.value
     this.postQuestionBean.status = "ACTIVE"
-    this.postQuestionBean.userId = "USERID23234234"
+    this.postQuestionBean.user_id = "USERID23234234"
     console.log("postQBean",this.postQuestionBean);
+
+    this.qnaService.postQuestion(this.postQuestionBean).subscribe(data=>{
+        console.log("question posted ", this.postQuestionBean);
+        
+    })
   }
 
   add(event: MatChipInputEvent): void {
@@ -104,4 +115,5 @@ export class PostQuestionsComponent implements OnInit {
     return this.allTags.filter(tag => tag.toLowerCase().includes(filterValue));
   }
 
+  
 }

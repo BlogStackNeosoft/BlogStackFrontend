@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpErrorResponse} from '@angular/common/http'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { User } from 'src/app/model/model';
@@ -96,7 +97,11 @@ export class LoginComponent implements OnInit {
   login() {
     console.log('value of login form', this.LoginForm.value);
     this.authService.login(this.LoginForm.value).subscribe((data) => {
-      console.log(data);
+      // console.log(data);
+      console.log(data.status)
+      if(data.status){
+        console.log(event);
+      }
       if (data.status) {
         localStorage.setItem('jwt_token', data.data.jwt_token);
         localStorage.setItem('user_id', data.data.user_id);
@@ -111,7 +116,7 @@ export class LoginComponent implements OnInit {
           } else {
             this.router.navigate(['/blogs']);
           }
-        });
+      });
       } else {
         Swal.fire({
           icon: 'error',

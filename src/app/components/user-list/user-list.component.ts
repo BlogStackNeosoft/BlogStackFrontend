@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { UserService } from 'src/app/service/user.service';
-import { Payload, Root, User, UserData } from 'src/app/model/model';
+import { Payload, Root, User } from 'src/app/model/model';
 import { UserSharedService } from 'src/app/service/user-shared.service';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 

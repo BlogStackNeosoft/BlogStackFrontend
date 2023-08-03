@@ -1,9 +1,10 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, ObservableInput } from 'rxjs';
 import { User } from '../model/model';
+import { catchError} from 'rxjs/operators';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,11 @@ export class AuthService {
   }
 
   public login(user: User): Observable<any>{
-    return this.httpClient.post<any>(this.baseUrl+"/sign-in/",user);
+    return this.httpClient.post<any>(this.baseUrl+"/sign-in/",user)
+    .pipe(catchError((res: ObservableInput<any>)=>{
+        console.log("Response : ",res)
+        return res
+    }))
   }
 
   public refreshToken(): Observable<any>{

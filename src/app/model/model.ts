@@ -13,13 +13,6 @@ export interface User {
   profile_photo: string
 }
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  fruit: string;
-}
-
 export interface Payload {
   password: any
   user_id: string
@@ -56,11 +49,20 @@ export enum Gender {
   FEMALE = 'Female',
   OTHER = 'Other'
 }
+export interface Category{
+  bscmStatus : string,
+  category : string,
+  bscmCategoryId : string
+}
 
+export interface Subcategory{
+  
+}
 
 
 export interface Question {
-  question: string
+  content: string
+  title: string
   status: string
   question_id: string
   user_id: string
@@ -82,12 +84,18 @@ export interface Answer {
   added_on: string
 }
 
-export interface postQuestionBean{
-question: string
-status :string
-userId : string
-codeSnippet : string
-tagId : string
-categoryId : string
-subCategoryId: string
+export interface PostQuestionBean{
+  content: string
+  title: string
+  status: string
+  question_id: string
+  user_id: string
+  code_snippet: string
+  tag_id: string
+  category_id: string
+  sub_category_id: string
+}
+
+export interface questionAnswerByCAtegory{
+  category: string
 }

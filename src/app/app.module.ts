@@ -31,11 +31,12 @@ import { UpdateProfileComponent } from './components/update-profile/update-profi
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
+import { CategoryComponent } from './components/category/category.component';
+import { ServiceUnavailableComponent } from './components/service-unavailable/service-unavailable.component';
+import { RoutingErrorComponent } from './components/routing-error/routing-error.component';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { QnaModule } from './components/stack/qna/qna.module';
-import { AuthService } from './service/auth.service';
-import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,11 @@ import { AuthenticationInterceptor } from './interceptors/authentication.interce
     UserProfileComponent,
     UserListComponent,
     UpdateUserComponent,
-    UpdateProfileComponent
+    UpdateProfileComponent,
+    RoutingErrorComponent,
+    CategoryComponent,
+    ServiceUnavailableComponent,
+    QuestionsByCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -75,8 +80,11 @@ import { AuthenticationInterceptor } from './interceptors/authentication.interce
     MatSelectModule,
     MatListModule,
     MatCardModule,
+
+
+
   ],
-  exports: [QnaModule],
+  exports: [],
 
   providers: [AuthService,
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },

@@ -1,37 +1,18 @@
-<div class="container">
-    <div class="header-container">
-        <div class="row">
-            <div class="col-10">
-                <div class="col-sm-5 col-md-6">
-                    <h3>{{questionList.length}} Questions</h3>
-                </div>
-            </div>
-
-            <div class="col-2"><button mat-raised-button type="button" color="warn" (click)="postQuestion()">Ask
-                    Question</button></div>
-        </div>
-    </div>
-    <!-- <div class="content mat-elevation-z8"> -->
-    <div class="container">
-        <!-- <div class="row"> -->
-        <div *ngFor="let q of questionList">
-            <mat-card>
-                <mat-card-content>
-                    <mat-list>
-                        <mat-list-item>{{q.question}}</mat-list-item>
-                        <mat-divider></mat-divider>
-                        <br>
-                        <mat-list-item>
-                            <span class="span-ellipsis">{{q.answers[0].answer}}</span>
-                        </mat-list-item>
-                    </mat-list>
-                </mat-card-content>
-            </mat-card>
-        </div>
-        <!-- </div> -->
-    </div>
-    <!-- </div> -->
-    <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" showFirstLastButtons
-        aria-label="Select page of periodic elements">
-    </mat-paginator>
-</div>
+<mat-sidenav-container class="tp-container" *ngIf="true">
+   <mat-sidenav mode="side" [opened]="true">
+      <section class="tp-section">
+         <span><a (click)="sectionClicked('question')">Questions</a></span>
+      </section>
+      <section class="tp-section">
+         <span><a (click)="sectionClicked('categories')">Categories</a></span>
+      </section>
+   </mat-sidenav>
+   <mat-sidenav-content>
+      <div *ngIf="section=='question'">
+         <app-question-list></app-question-list>
+      </div>
+      <div *ngIf="section=='categories'">
+         <app-category></app-category>
+      </div>
+   </mat-sidenav-content>
+</mat-sidenav-container>

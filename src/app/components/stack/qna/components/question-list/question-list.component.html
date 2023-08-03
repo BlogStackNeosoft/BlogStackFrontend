@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="container head-cont">
+        <div class="row">
+            <div class="col-10">
+                <div class="col-sm-5 col-md-6">
+                    <h3>{{questionList.length}} Questions</h3>
+                </div>
+            </div>
+
+            <div class="col-2"><button mat-raised-button type="button" color="warn" (click)="postQuestion()">Ask
+                    Question</button></div>
+        </div>
+    </div>
+    <!-- <div class="content mat-elevation-z8"> -->
+    <div class="container">
+        <!-- <div class="row"> -->
+        <div *ngFor="let q of questionList">
+            <mat-card>
+                <mat-card-content>
+                    <mat-list>
+                        <mat-list-item><b>{{q.title}}</b></mat-list-item>
+                        <mat-divider></mat-divider>
+                        <br>
+                        <mat-list-item>
+                            <span class="span-ellipsis">{{q.content}}</span>
+                        </mat-list-item>
+                    </mat-list>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <!-- </div> -->
+    </div>
+    <!-- </div> -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 15, 20]" showFirstLastButtons
+        aria-label="Select page of periodic elements">
+    </mat-paginator>
+</div>

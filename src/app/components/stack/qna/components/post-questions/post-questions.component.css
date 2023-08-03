@@ -22,12 +22,11 @@
   width: 1000px;
 }
 
-.col-6 {
-  padding-right: 5%;
+.col-4 {
   padding-top: 2%;
-  padding-bottom: 20%;
+  padding-bottom: 20%;  
 }
 
 .example-chip-list {
   width: 100%;
-}
+}     
