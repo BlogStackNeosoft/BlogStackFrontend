@@ -42,59 +42,61 @@ import { AuthenticationInterceptor } from './interceptors/authentication.interce
 import { AuthService } from './service/auth.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    AboutComponent,
-    LoginComponent,
-    NavbarComponent,
-    BlogsComponent,
-    StackComponent,
-    ContactComponent,
-    UserProfileComponent,
-    UserListComponent,
-    UpdateUserComponent,
-    UpdateProfileComponent,
-    RoutingErrorComponent,
-    CategoryComponent,
-    ServiceUnavailableComponent,
-    QuestionsByCategoryComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    MatButtonModule,
-    MatTabsModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatIconModule,
-    MatTooltipModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    MatFormFieldModule,
-    MatPaginatorModule,
-    MatSortModule,
-    MatTableModule,
-    MatSlideToggleModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSelectModule,
-    MatListModule,
-    MatCardModule,
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        AboutComponent,
+        LoginComponent,
+        NavbarComponent,
+        BlogsComponent,
+        StackComponent,
+        ContactComponent,
+        UserProfileComponent,
+        UserListComponent,
+        UpdateUserComponent,
+        UpdateProfileComponent,
+        RoutingErrorComponent,
+        CategoryComponent,
+        ServiceUnavailableComponent,
+        QuestionsByCategoryComponent
+    ],
 
-  ],
-  exports: [],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatButtonModule,
+        MatTabsModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatIconModule,
+        MatTooltipModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatFormFieldModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatTableModule,
+        MatSlideToggleModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSelectModule,
+        MatListModule,
+        MatCardModule,
+        QnaModule
+    ],
 
-  providers: [AuthService,
-    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthenticationInterceptor,
-      multi: true
-    }
-  ],
-  bootstrap: [AppComponent]
+exports: [],
+
+providers: [AuthService,
+  { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+  {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthenticationInterceptor,
+    multi: true
+  }
+],
+bootstrap: [AppComponent]
 })
 export class AppModule { }
