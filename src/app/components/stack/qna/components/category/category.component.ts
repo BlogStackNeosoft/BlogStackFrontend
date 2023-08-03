@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Category } from 'src/app/model/model';
+import { CategoryService } from 'src/app/service/category-service.service'
+import {Router} from '@angular/router'
+import { CategorySharedService } from 'src/app/service/category-shared.service';
+
 
 @Component({
   selector: 'app-category',
@@ -8,9 +12,31 @@ import { Router } from '@angular/router';
 })
 export class CategoryComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  categoryList: Category[] = []
+  questionData: any
+  constructor(private categoryService:CategoryService,
+              private router:Router,
+              private categorySharedService : CategorySharedService) {
+    
+   }
 
   ngOnInit(): void {
+    this.categoryService.fetchAll().subscribe((data)=>{
+      console.log("inside subscribe")
+      console.log(data.data.payload)
+      this.categoryList = data.data.payload
+    })
+  }
+
+  viewAll(data:any){
+      // fetch all the questions by category
+    //   this.categoryService.getQuestionByCategory(data).subscribe((data)=> {
+    //       console.log(data)
+    //  })
+    //  console.log(this.questionData)
+    this.categorySharedService.setCategory(data)
+    this.router.navigate(["question-by-id"]);
+
   }
 
 }

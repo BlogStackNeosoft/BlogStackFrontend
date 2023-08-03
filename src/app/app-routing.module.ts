@@ -10,9 +10,9 @@ import { UpdateUserComponent } from './components/update-user/update-user.compon
 import { AboutComponent } from './components/about/about.component';
 import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
 import {RoutingErrorComponent} from './components/routing-error/routing-error.component'
-import { CategoryComponent } from './components/category/category.component';
+import { CategoryComponent } from './components/stack/qna/components/category/category.component';
 import { ServiceUnavailableComponent } from './components/service-unavailable/service-unavailable.component';
-import { QuestionsByCategoryComponent } from './components/questions-by-category/questions-by-category.component';
+import { QuestionsByCategoryComponent } from './components/stack/qna/components/questions-by-category/questions-by-category.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },
@@ -20,7 +20,6 @@ const routes: Routes = [
   { path: "about", component: AboutComponent},
   {path: "login", component: LoginComponent},
   {path: "blogs", component: BlogsComponent},
-  {path: "stack", component:StackComponent},
   {path: "contact", component:ContactComponent},
   {path: "user-list", component:UserListComponent},
   {path: "update-user", component:UpdateUserComponent},
