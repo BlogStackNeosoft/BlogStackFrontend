@@ -19,7 +19,7 @@ export class AppComponent {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
     this.role = localStorage?.getItem("role")
-    console.log("the role value is", this.role)
+    // console.log("the role value is", this.role)
 
   }
   homePage() {
@@ -36,7 +36,7 @@ export class AppComponent {
 
   ngAfterContentChecked() {
     this.role = localStorage?.getItem("role")
-    console.log("the role value is", this.role)
+    // console.log("the role value is", this.role)
     this.navBarActive = false
     if (this.router.routerState.root.firstChild?.routeConfig?.path == "blogs") {
       this.navBarActive = false

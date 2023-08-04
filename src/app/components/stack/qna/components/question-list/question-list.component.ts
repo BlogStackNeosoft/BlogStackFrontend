@@ -2,19 +2,21 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Question, User } from 'src/app/model/model';
+import { Question } from 'src/app/model/model';
 import { QnaService } from 'src/app/service/qna.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-stack',
-  templateUrl: './stack.component.html',
-  styleUrls: ['./stack.component.css']
+  selector: 'app-question-list',
+  templateUrl: './question-list.component.html',
+  styleUrls: ['./question-list.component.css']
 })
-export class StackComponent implements OnInit {
+export class QuestionListComponent implements OnInit {
+
   search!: string;
   role!: string | null;
   toggleButton: boolean = false;
+  isLoaded : boolean = true;
 
   constructor(private router: Router, private qnaService: QnaService) { }
 
@@ -62,17 +64,13 @@ export class StackComponent implements OnInit {
       console.log("Questions", data);
       this.questionList = data.data.payload
       console.log("questionList", this.questionList);
+      this.isLoaded = false;
     })
   }
 
-  // postQuestion() {
-  //   this.router.navigate(['/post-question'])
-  // }
-  
-  section:string="question";
-  sectionClicked(section:string){
-    this.section=section;
-  }
+  postQuestion() {
+    this.router.navigate(['stack/post-question'])
+    this.router.navigate(["stack/post-question"]);
 
-  
+  }
 }
