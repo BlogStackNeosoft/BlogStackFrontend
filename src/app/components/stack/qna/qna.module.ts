@@ -25,8 +25,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     PostQuestionsComponent,
-    QuestionListComponent,
-    CategoryComponent
+    QuestionListComponent
   ],
   imports: [
     CommonModule,
@@ -51,7 +50,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   ],
   exports: [
     QuestionListComponent,
-    CategoryComponent,
+    PostQuestionsComponent,
     PostQuestionsComponent
   ],
 })
