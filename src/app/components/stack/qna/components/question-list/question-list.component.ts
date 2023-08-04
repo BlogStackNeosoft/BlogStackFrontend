@@ -16,6 +16,7 @@ export class QuestionListComponent implements OnInit {
   search!: string;
   role!: string | null;
   toggleButton: boolean = false;
+  isLoaded : boolean = true;
 
   constructor(private router: Router, private qnaService: QnaService) { }
 
@@ -63,7 +64,7 @@ export class QuestionListComponent implements OnInit {
       console.log("Questions", data);
       this.questionList = data.data.payload
       console.log("questionList", this.questionList);
-
+      this.isLoaded = false;
     })
   }
 

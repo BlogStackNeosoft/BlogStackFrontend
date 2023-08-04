@@ -19,6 +19,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { CategoryComponent } from './components/category/category.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { CategoryComponent } from './components/category/category.component';
   ],
   imports: [
     CommonModule,
+    QnaRoutingModule,
     MatButtonModule,
     MatStepperModule,
     FormsModule,
@@ -44,10 +46,10 @@ import { CategoryComponent } from './components/category/category.component';
     MatPaginatorModule,
     MatCardModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatProgressSpinnerModule
   ],
   exports: [
-    QnaRoutingModule,
     QuestionListComponent,
     CategoryComponent,
     PostQuestionsComponent

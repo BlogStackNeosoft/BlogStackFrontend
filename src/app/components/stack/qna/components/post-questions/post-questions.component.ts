@@ -4,8 +4,10 @@ import { Observable, startWith, map } from 'rxjs';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatChipInputEvent } from '@angular/material/chips';
-import { PostQuestionBean } from 'src/app/model/model';
+import { Categories, PostQuestionBean, Subcategories } from 'src/app/model/model';
 import { QnaService } from 'src/app/service/qna.service';
+import { CategoryService } from 'src/app/service/category-service.service';
+import { SubcategoryService } from 'src/app/service/subcategory.service';
 
 @Component({
   selector: 'app-post-questions',
@@ -24,17 +26,14 @@ export class PostQuestionsComponent implements OnInit {
   tags: string[] = ['Java'];
   allTags: string[] = ['Cobol', 'Java', 'C#', 'Ruby', 'C++', 'C'];
 
+  categories: Categories[] = [];
+  subcategories: Subcategories[] = [];
+  
+
   
   
   @ViewChild('tagInput')
   tagInput!: ElementRef<HTMLInputElement>;
-
-  categories = [
-    'Language',
-    'Framework',
-    'Database',
-    'IDE'
-  ];
 
   firstFormGroup = this.fb.group({
     titleCtrl : ['', [Validators.required]],
@@ -52,7 +51,9 @@ export class PostQuestionsComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private _formBuilder: FormBuilder,
-    private qnaService: QnaService
+    private qnaService: QnaService,
+    private categoryService: CategoryService,
+    private subcategoryService: SubcategoryService
   ) {
     this.filteredTags = this.tagCtrl.valueChanges.pipe(
       startWith(null),
@@ -61,6 +62,8 @@ export class PostQuestionsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.fetchAllCategories()
+    this.fetchAllSubcategories()
   }
 
   postQuestionBean: PostQuestionBean=<PostQuestionBean>{}
@@ -72,13 +75,34 @@ export class PostQuestionsComponent implements OnInit {
     this.postQuestionBean.tag_id = this.secondFormGroup.get('tagCtrl')?.value
     this.postQuestionBean.code_snippet = this.thirdFormGroup.get('codeCtrl')?.value
     this.postQuestionBean.status = "ACTIVE"
-    this.postQuestionBean.user_id = "USERID23234234"
+    //this.postQuestionBean.user_id = localStorage.getItem("")
     console.log("postQBean",this.postQuestionBean);
 
     this.qnaService.postQuestion(this.postQuestionBean).subscribe(data=>{
         console.log("question posted ", this.postQuestionBean);
         
     })
+  }
+
+  fetchAllCategories(){
+    this.categoryService.fetchAll().subscribe(data=>{
+      this.categories = data.data.payload
+    })
+  }
+
+  fetchAllSubcategories(){
+    this.subcategoryService.fetchAllSubcat().subscribe(data=>{
+      console.log("subcategories",data);
+      this.subcategories = data.data.payload
+    })
+  }
+
+  getSubcategoryByCategories(categoryId:string){
+    this.subcategoryService.getSubcategoriesByCategory(categoryId).subscribe(data=>{
+      console.log("subcateByCat",data);
+      this.subcategories = data.data
+    })
+
   }
 
   add(event: MatChipInputEvent): void {

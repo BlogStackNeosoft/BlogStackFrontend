@@ -111,3 +111,14 @@ mat-toolbar {
 mat-card{
  margin-bottom: 0.8%;
 }
+.loader
+{
+  height: calc(100vh - 20px);
+  z-index: 1;
+}
+
+.center {
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
+}

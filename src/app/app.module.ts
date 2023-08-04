@@ -40,6 +40,7 @@ import { QnaModule } from './components/stack/qna/qna.module';
 import { QuestionsByCategoryComponent } from './components/questions-by-category/questions-by-category.component';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { AuthService } from './service/auth.service';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
     declarations: [
@@ -84,10 +85,11 @@ import { AuthService } from './service/auth.service';
         MatSelectModule,
         MatListModule,
         MatCardModule,
+        MatProgressSpinnerModule,
         QnaModule
     ],
 
-exports: [],
+exports: [StackComponent],
 
 providers: [AuthService,
   { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },

@@ -18,4 +18,6 @@ export class QnaService {
   public postQuestion(postQuestionBean:PostQuestionBean): Observable<any>{
     return this.httpClient.post(this.baseUrl, postQuestionBean)
   }
+
+  
 }

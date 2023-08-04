@@ -99,3 +99,18 @@ export interface PostQuestionBean{
 export interface questionAnswerByCAtegory{
   category: string
 }
+
+export interface Categories{
+  category: string
+  status: string
+  category_id: string
+  added_on: string
+}
+
+export interface Subcategories{
+  subcategory: string
+  status: string
+  subcategory_id: string
+  category_id: string
+  added_on: string
+}

@@ -1,18 +1,13 @@
-<mat-sidenav-container class="tp-container" *ngIf="true">
+<mat-sidenav-container class="tp-container">
    <mat-sidenav mode="side" [opened]="true">
       <section class="tp-section">
-         <span><a (click)="sectionClicked('question')">Questions</a></span>
+         <span><a routerLink="/question-list">Questions</a></span>
       </section>
       <section class="tp-section">
-         <span><a (click)="sectionClicked('categories')">Categories</a></span>
+         <span><a routerLink="/categories">Categories</a></span>
       </section>
    </mat-sidenav>
    <mat-sidenav-content>
-      <div *ngIf="section=='question'">
-         <app-question-list></app-question-list>
-      </div>
-      <div *ngIf="section=='categories'">
-         <app-category></app-category>
-      </div>
+      <router-outlet></router-outlet>
    </mat-sidenav-content>
 </mat-sidenav-container>

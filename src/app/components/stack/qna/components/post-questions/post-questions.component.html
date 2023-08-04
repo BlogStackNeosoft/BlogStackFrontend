@@ -44,8 +44,8 @@
                         <div class="col-6"> <mat-form-field>
                             <mat-label>Category</mat-label>
                             <mat-select formControlName="categoryCtrl">
-                              <mat-option *ngFor="let category of categories" [value]="category">
-                                {{category}}
+                              <mat-option *ngFor="let category of categories" [value]="category" (click)="getSubcategoryByCategories(category.category_id)">
+                                {{category.category}}
                               </mat-option>
                             </mat-select>
                           </mat-form-field>
@@ -55,8 +55,8 @@
                           <mat-form-field>
                             <mat-label>Subcategory</mat-label>
                             <mat-select formControlName="subcategoryCtrl">
-                              <mat-option *ngFor="let category of categories" [value]="category">
-                                {{category}}
+                              <mat-option *ngFor="let subcategory of subcategories" [value]="subcategory">
+                                {{subcategory.subcategory}}
                               </mat-option>
                             </mat-select>
                           </mat-form-field>

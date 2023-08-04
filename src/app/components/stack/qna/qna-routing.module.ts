@@ -6,6 +6,7 @@ import { CategoryComponent } from './components/category/category.component';
 
 const routes: Routes = [
   { path: "post-question", component: PostQuestionsComponent },
+  { path: "", component: QuestionListComponent },
   { path: "question-list", component:QuestionListComponent},
   { path: "categories", component: CategoryComponent }
 
