@@ -1,14 +1,20 @@
 <header style="padding: 2% 6%; position: static;">
-    <nav class="nav container" >
-        <h2 class="nav_logo text"><a href="#"><a style="color: black;">Blog</a><a style="color:#f12b20;">Stack</a></a></h2>
+    <nav class="nav container">
+        <h2 class="nav_logo text"><a href="#"><a style="color: black;">Blog</a><a style="color:#f12b20;">Stack</a></a>
+        </h2>
         <ul class="menu_items">
             <img src="../../assets/times.svg" alt="timesicon" id="menu_toggle" />
-            <li class="nav_link"><a routerLink="" class="nav_link"><b>Home</b></a></li>
+            <li class="nav_link"><a routerLink="/home" class="nav_link"><b>Home</b></a></li>
             <li class="nav_link"><a routerLink="/about" class=" nav_link"><b>About</b></a></li>
-            <li class="nav_link"><a (click)="toggleSignIn()" class="nav_link"><b *ngIf="role!=null" style="cursor: pointer;">Signout</b><b *ngIf="role==null" style="cursor: pointer;">SignIn</b></a></li>
+
             <li class="nav_link"><a routerLink="/blogs" class="nav_link"><b>Blogs</b></a></li>
             <li class="nav_link"><a routerLink="/stack" class="nav_link"><b>Stack</b></a></li>
             <li class="nav_link"><a routerLink="/contact" class="nav_link"><b>Contact</b></a></li>
+            <li class="nav_link" *ngIf="role=='admin'"><a routerLink="/contact" class="nav_link"><b>Admin
+                        DashBoard</b></a></li>
+            <li class="nav_link"><a (click)="toggleSignIn()" class="nav_link"><b *ngIf="role!=null"
+                        style="cursor: pointer;text-decoration: underline;">SignOut</b>
+                    <b *ngIf="role==null" style="cursor: pointer;">SignIn</b></a></li>
         </ul>
         <img src="../../assets/bars.svg" alt="timesicon" id="menu_toggle" />
     </nav>
