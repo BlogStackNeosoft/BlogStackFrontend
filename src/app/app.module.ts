@@ -23,7 +23,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { StackComponent } from './components/stack/stack.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { UserListComponent } from './components/user-list/user-list.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { AboutComponent } from './components/about/about.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -31,16 +30,17 @@ import { UpdateProfileComponent } from './components/update-profile/update-profi
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-import { CategoryComponent } from './components/category/category.component';
 import { ServiceUnavailableComponent } from './components/service-unavailable/service-unavailable.component';
 import { RoutingErrorComponent } from './components/routing-error/routing-error.component';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { QnaModule } from './components/stack/qna/qna.module';
-import { QuestionsByCategoryComponent } from './components/questions-by-category/questions-by-category.component';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { AuthService } from './service/auth.service';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { UserListComponent } from './components/Admin/components/user-list/user-list.component';
+import { CategoryComponent } from './components/stack/qna/components/category/category.component';
+import { QuestionsByCategoryComponent } from './components/stack/qna/components/questions-by-category/questions-by-category.component';
 
 @NgModule({
     declarations: [
@@ -57,7 +57,6 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
         UpdateUserComponent,
         UpdateProfileComponent,
         RoutingErrorComponent,
-        CategoryComponent,
         ServiceUnavailableComponent,
         QuestionsByCategoryComponent
     ],

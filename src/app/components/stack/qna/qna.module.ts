@@ -25,7 +25,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 @NgModule({
   declarations: [
     PostQuestionsComponent,
-    QuestionListComponent
+    QuestionListComponent,
+    CategoryComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +38,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatFormFieldModule,
     MatInputModule,
     MatSidenavModule,
-    MatSelectModule,
+    MatSelectModule,    
     TextFieldModule,
     MatChipsModule,
     MatAutocompleteModule,
@@ -51,7 +52,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   exports: [
     QuestionListComponent,
     PostQuestionsComponent,
-    PostQuestionsComponent
+    CategoryComponent
   ],
 })
 export class QnaModule { }
