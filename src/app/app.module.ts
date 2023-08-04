@@ -57,7 +57,6 @@ import { QuestionsByCategoryComponent } from './components/stack/qna/components/
         UpdateUserComponent,
         UpdateProfileComponent,
         RoutingErrorComponent,
-        CategoryComponent,
         ServiceUnavailableComponent,
         QuestionsByCategoryComponent
     ],
