@@ -108,7 +108,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('role',data.data.user_roles[0]);
         Swal.fire('Successfully Login').then(() => {
           if (localStorage.getItem('role') == 'admin') {
-            this.router.navigate(['/admin/user-list']);
+            this.router.navigate(['/admin']);
           } else {
             this.router.navigate(['/blogs']);
           }

@@ -29,9 +29,9 @@ import { UserListComponent } from './components/Admin/components/user-list/user-
     { path: "update-profile", component: UpdateProfileComponent },
     { path: "category", component: CategoryComponent },
     { path: "service-unavailable", component: ServiceUnavailableComponent },
-    // {
-    //   path: 'stack', loadChildren: () => import('../app/components/stack/qna/qna.module').then(m => m.QnaModule)
-    // },
+    {
+      path: 'admin', loadChildren: () => import('../app/components/Admin/admin.module').then(m => m.AdminModule)
+    },
     //Please dont move this, error component should be last path 
     { path: "**", component: RoutingErrorComponent }
   ];

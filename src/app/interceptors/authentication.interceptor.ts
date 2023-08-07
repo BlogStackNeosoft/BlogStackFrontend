@@ -1,36 +1,51 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpErrorResponse
 } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { Observable, catchError, map, tap, throwError } from 'rxjs';
 import { AuthService } from '../service/auth.service';
 
 @Injectable()
 export class AuthenticationInterceptor implements HttpInterceptor {
+  refreshToken :boolean=false;
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService,private injector: Injector) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    let token: string | null = localStorage.getItem("jwt_token");
-    if(token){
-      request = request.clone({headers: request.headers.set('AUTHORIZATION','Bearer '+token)})
-    }
-    return next.handle(request).pipe(tap((event)=>{
-      console.log(event);
-      console.log(event);
-      if(event.type==1 && localStorage.getItem("user_id")!=null){
-        this.authService.refreshToken().subscribe(data=>{
-          localStorage.clear();
-          if (data.status) {
-            localStorage.setItem('user_id', data.data.user_id);
-            localStorage.setItem('jwt_token', data.data.jwt_token);
-            localStorage.setItem('refresh_token', data.data.refresh_token);
+    let authService = this.injector.get(AuthService);
+    let tokenReq = request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${authService.getToken()}`
+      }
+    })
+    return next.handle(tokenReq).pipe(tap({
+      next:(event)=>
+      {
+        console.log("data to be retuned form next",event)
+      },
+      error:(error: HttpErrorResponse)=>{
+        console.log("error",error)
+        console.log("error status",error.status)
+        if(error.status==401){
+          if(this.refreshToken==false){
+            this.authService.refreshToken().subscribe(data=>{
+              console.log("data from refresh token ",data);
+              localStorage.clear();
+              localStorage.setItem("user_id",data.data.user_id);
+              localStorage.setItem("jwt_token",data.data.jwt_token);
+              localStorage.setItem("refresh_token",data.data.refresh_token);
+              request.clone({
+                setHeaders: {
+                  Authorization: `Bearer ${authService.getToken()}`
+                }})
+            })
+            this.refreshToken=true;
           }
-      });
-    }
-  }));
-  }
-}
+        }
+      }
+    }))
+  }}
