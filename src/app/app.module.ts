@@ -38,9 +38,9 @@ import { QnaModule } from './components/stack/qna/qna.module';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { AuthService } from './service/auth.service';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { UserListComponent } from './components/Admin/components/user-list/user-list.component';
 import { CategoryComponent } from './components/stack/qna/components/category/category.component';
 import { QuestionsByCategoryComponent } from './components/stack/qna/components/questions-by-category/questions-by-category.component';
+import { AdminModule } from './components/Admin/admin.module';
 
 @NgModule({
     declarations: [
@@ -53,7 +53,6 @@ import { QuestionsByCategoryComponent } from './components/stack/qna/components/
         StackComponent,
         ContactComponent,
         UserProfileComponent,
-        UserListComponent,
         UpdateUserComponent,
         UpdateProfileComponent,
         RoutingErrorComponent,
@@ -85,7 +84,8 @@ import { QuestionsByCategoryComponent } from './components/stack/qna/components/
         MatListModule,
         MatCardModule,
         MatProgressSpinnerModule,
-        QnaModule
+        QnaModule,
+        AdminModule
     ],
 
 exports: [StackComponent],

@@ -30,7 +30,7 @@ export class AuthService {
   }
 
   public refreshToken(): Observable<any>{
-    return this.httpClient.post<any>(this.baseUrl+"/refresh-token"+localStorage.getItem('refresh-token'), " ")
+    return this.httpClient.post<any>(this.baseUrl+"/refresh-token/"+localStorage.getItem('refresh_token'),"")
   }
 
   public signOut() {
