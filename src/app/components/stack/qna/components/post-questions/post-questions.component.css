@@ -30,3 +30,12 @@
 .example-chip-list {
   width: 100%;
 }     
+
+.qcontainer{
+  margin-left: 2%;
+} 
+
+button{
+  margin-left: 20%;
+  margin-right: 8%;
+}
