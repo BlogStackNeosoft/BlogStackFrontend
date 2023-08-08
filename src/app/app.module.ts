@@ -42,6 +42,7 @@ import { CategoryComponent } from './components/stack/qna/components/category/ca
 import { QuestionsByCategoryComponent } from './components/stack/qna/components/questions-by-category/questions-by-category.component';
 import { AdminModule } from './components/Admin/admin.module';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { OtpValidationComponent } from './components/otp-validation/otp-validation.component';
 
 @NgModule({
     declarations: [
@@ -59,7 +60,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
         RoutingErrorComponent,
         ServiceUnavailableComponent,
         QuestionsByCategoryComponent,
-        ForgotPasswordComponent
+        ForgotPasswordComponent,
+        OtpValidationComponent
     ],
 
     imports: [

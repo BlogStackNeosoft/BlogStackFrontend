@@ -14,6 +14,7 @@ import { CategoryComponent } from './components/stack/qna/components/category/ca
 import { UserListComponent } from './components/Admin/components/user-list/user-list.component';
 import { AdminDashboardComponent } from './components/Admin/components/admin-dashboard/admin-dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { OtpValidationComponent } from './components/otp-validation/otp-validation.component';
 
   const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -21,6 +22,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     { path: "about", component: AboutComponent },
     { path: "login", component: LoginComponent },
     { path:"forgot", component: ForgotPasswordComponent },
+    { path: "otp", component: OtpValidationComponent },
     { path: "blogs", component: BlogsComponent },
     {
       path: "stack", component: StackComponent,
@@ -35,6 +37,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     {
       path: 'admin',component:AdminDashboardComponent, loadChildren: () => import('../app/components/Admin/admin.module').then(m => m.AdminModule)
     },
+    
     //Please dont move this, error component should be last path 
     { path: "**", component: RoutingErrorComponent }
   ];
