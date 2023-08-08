@@ -5,22 +5,23 @@
     <div class="col-6" style="padding-top: 2%;">
       <mat-tab-group (focusChange)="tabChanged()">
         <mat-tab label="Login">
-          <form class="example-form" [formGroup]="LoginForm">
+          <form class="example-form" [formGroup]="Login">
             <div style="padding: 20px">
               <mat-form-field class="example-full-width">
                 <mat-label>Email Id</mat-label>
                 <input matInput placeholder="Email Id" formControlName="email_id" />
               </mat-form-field>
-              <mat-form-field class="example-full-width">
+              <mat-form-field class="example-full-width" style="margin-bottom: -20px;">
                 <mat-label>Password</mat-label>
                 <input matInput [type]="showPassword ? 'text' : 'password'" placeholder="Password"
                   formControlName="password" type="password" />
                 <mat-icon matSuffix (click)="showPassword=!showPassword">{{showPassword ?
                   'visibility':'visibility_off'}}</mat-icon>
               </mat-form-field>
-            </div>
+              <p class="message" style="margin-bottom: -5px;" (click)="forgot()">Forgot password?</p>
+              </div>
           </form>
-          <button mat-raised-button color="warn" class="btnstyle" [disabled]="!LoginForm.valid"
+            <button mat-raised-button color="warn" class="btnstyle" [disabled]="!Login.valid"
             (click)="login()">Login</button>
         </mat-tab>
 
@@ -61,8 +62,8 @@
       </mat-tab-group>
     </div>
 
-    <div class="col-6" style="margin-top: -10%;padding-right: 0%;">
-      <img src="../../../assets/hero.gif" alt="heroImg" style="" />
+    <div class="col-6" style="margin-top: -10%;">
+      <img src="../../../assets/hero.gif" alt="heroImg"/>
     </div>
   </div>
 </div>

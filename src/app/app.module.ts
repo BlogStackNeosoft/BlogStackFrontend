@@ -41,6 +41,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { CategoryComponent } from './components/stack/qna/components/category/category.component';
 import { QuestionsByCategoryComponent } from './components/stack/qna/components/questions-by-category/questions-by-category.component';
 import { AdminModule } from './components/Admin/admin.module';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 @NgModule({
     declarations: [
@@ -57,7 +58,8 @@ import { AdminModule } from './components/Admin/admin.module';
         UpdateProfileComponent,
         RoutingErrorComponent,
         ServiceUnavailableComponent,
-        QuestionsByCategoryComponent
+        QuestionsByCategoryComponent,
+        ForgotPasswordComponent
     ],
 
     imports: [

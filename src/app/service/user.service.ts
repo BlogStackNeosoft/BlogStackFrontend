@@ -38,4 +38,8 @@ export class UserService {
   public uploadProfilePhoto(email: string, formData: FormData): Observable<any> {
     return this.httpClient.put(this.baseUrl + "profile-photo/" + email, formData);
   }
+
+  public forgotPassword(email: string): Observable<any> {
+    return this.httpClient.post<any>(this.baseUrl+"forgot-password/"+ email, "");
+  }
 }
