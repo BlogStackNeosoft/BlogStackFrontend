@@ -12,12 +12,15 @@
   import { ServiceUnavailableComponent } from './components/service-unavailable/service-unavailable.component';
 import { CategoryComponent } from './components/stack/qna/components/category/category.component';
 import { UserListComponent } from './components/Admin/components/user-list/user-list.component';
+import { AdminDashboardComponent } from './components/Admin/components/admin-dashboard/admin-dashboard.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
   const routes: Routes = [
     { path: "", component: HomeComponent },
     { path: "home", component: HomeComponent },
     { path: "about", component: AboutComponent },
     { path: "login", component: LoginComponent },
+    { path:"forgot", component: ForgotPasswordComponent },
     { path: "blogs", component: BlogsComponent },
     {
       path: "stack", component: StackComponent,
@@ -30,7 +33,7 @@ import { UserListComponent } from './components/Admin/components/user-list/user-
     { path: "category", component: CategoryComponent },
     { path: "service-unavailable", component: ServiceUnavailableComponent },
     {
-      path: 'admin', loadChildren: () => import('../app/components/Admin/admin.module').then(m => m.AdminModule)
+      path: 'admin',component:AdminDashboardComponent, loadChildren: () => import('../app/components/Admin/admin.module').then(m => m.AdminModule)
     },
     //Please dont move this, error component should be last path 
     { path: "**", component: RoutingErrorComponent }

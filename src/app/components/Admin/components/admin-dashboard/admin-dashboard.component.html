@@ -1,66 +1,56 @@
-<div class="container text-center">
-<h3 style="color: #f12b20;">Admin Dashboard</h3><br>
-    <div class="container">
-        <div class="row">
-            <div class="col-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <mat-card-title>User Management</mat-card-title>
-                    </mat-card-header>
-                    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-                  </mat-card>
-            </div>
-            <div class="col-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <mat-card-title>View All My Question</mat-card-title>
-                    </mat-card-header>
-                    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-                    <mat-card-content>
-                    </mat-card-content>
-                  </mat-card>
-            </div>
-            <div class="col-4">
-                <mat-card class="example-card">
-                    <mat-card-header>
-                      <mat-card-title>View All Blogs</mat-card-title>
-                    </mat-card-header>
-                    <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-                    <mat-card-content>
-                    </mat-card-content>
-                  </mat-card>
-            </div>
-    </div><br><br>
-    <div class="row">
+<div class="container">
+  <h3 style="color: #202020; text-align: center;">Admin Dashboard</h3><br>
+      <div class="row">
         <div class="col-4">
-            <mat-card class="example-card">
-                <mat-card-header>
-                  <mat-card-title>User Management</mat-card-title>
-                </mat-card-header>
-                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-                <mat-card-content>
-                </mat-card-content>
-              </mat-card>
-        </div>
-        <div class="col-4">
-            <mat-card class="example-card">
-                <mat-card-header>
-                  <mat-card-title>View All My Question</mat-card-title>
-                </mat-card-header>
-                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-                <mat-card-content>
-                </mat-card-content>
-              </mat-card>
-        </div>
-        <div class="col-4">
-            <mat-card class="example-card">
-                <mat-card-header>
-                  <mat-card-title>View All Blogs</mat-card-title>
-                </mat-card-header>
-                <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
-                <mat-card-content>
-                </mat-card-content>
-              </mat-card>
-        </div>
+          <mat-card class="example-card" style="border: solid 2px #f12b20; height: 100%;">
+                <mat-card-title (click)="userList()" style="text-align: center;"><mat-icon style="padding-top: 0.6%;">group_add</mat-icon>User Management</mat-card-title>
+            </mat-card>
+      </div>
+      <div class="col-4">
+        <mat-card class="example-card" style="border: solid 2px #f12b20;">
+          <mat-card-title (click)="userList()" style="text-align: center;"><mat-icon style="padding-top: 0.6%;">supervised_user_circle</mat-icon>Moderator</mat-card-title>
+      </mat-card>
+    </div>
+    <div class="col-4">
+      <mat-card class="example-card" style="border: solid 2px #f12b20;">
+        <mat-card-title (click)="userList()" style="text-align: center;"><mat-icon style="padding-top: 0.6%;">event_note</mat-icon>View All Blogs</mat-card-title>
+    </mat-card>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-4">
+    <mat-card class="example-card" style="border: solid 2px #f12b20;">
+          <mat-card-title (click)="userList()" style="text-align: center;"><mat-icon style="padding-top: 0.6%;">group_add</mat-icon>User Management</mat-card-title>
+      </mat-card>
+</div>
+<div class="col-4">
+  <mat-card class="example-card" style="border: solid 2px #f12b20;">
+    <mat-card-title (click)="userList()" style="text-align: center;"><mat-icon style="padding-top: 0.6%;">supervised_user_circle</mat-icon>Moderator</mat-card-title>
+</mat-card>
+</div>
+<div class="col-4">
+<mat-card class="example-card" style="border: solid 2px #f12b20;">
+  <mat-card-title (click)="userList()" style="text-align: center;"><mat-icon style="padding-top: 0.6%;">account_box</mat-icon>User Management</mat-card-title>
+</mat-card>
 </div>
 </div>
+<br>
+<div class="row">
+  <div class="col-4">
+    <mat-card class="example-card" style="border: solid 2px #f12b20;">
+          <mat-card-title (click)="userList()" style="text-align: center;"><mat-icon style="padding-top: 0.6%;">group_add</mat-icon>User Management</mat-card-title>
+      </mat-card>
+</div>
+<div class="col-4">
+  <mat-card class="example-card" style="border: solid 2px #f12b20;">
+    <mat-card-title (click)="userList()" style="text-align: center;"><mat-icon style="padding-top: 0.6%;">supervised_user_circle</mat-icon>Moderator</mat-card-title>
+</mat-card>
+</div>
+<div class="col-4">
+<mat-card class="example-card" style="border: solid 2px #f12b20;">
+  <mat-card-title (click)="userList()" style="text-align: center;"><mat-icon style="padding-top: 0.6%;">account_box</mat-icon>User Management</mat-card-title>
+</mat-card>
+</div>
+</div>
+</div>  
