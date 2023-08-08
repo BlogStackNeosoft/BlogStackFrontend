@@ -1,4 +1,4 @@
-import { HttpClient,HttpErrorResponse } from '@angular/common/http';
+import { HttpClient,HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, ObservableInput } from 'rxjs';
 import { User } from '../model/model';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router'
 export class AuthService {
   // baseUrl = 'http://ec2-18-212-53-8.compute-1.amazonaws.com:9091/v1.0/authentication'
   
-  baseUrl = 'http://localhost:8080/v1.0/authentication'
+  baseUrl = 'http://localhost:9095/v1.0/authentication/'
 
   constructor(private httpClient: HttpClient, private router: Router) {
   }
@@ -31,6 +31,13 @@ export class AuthService {
 
   public refreshToken(): Observable<any>{
     return this.httpClient.post<any>(this.baseUrl+"/refresh-token/"+localStorage.getItem('refresh_token'),"")
+  }
+
+  public forgotPassword(email: string): Observable<any> {
+    let params=new HttpParams();
+    params=params.set("email",email);
+    return this.httpClient.post(this.baseUrl+"forgot-password?"+params,"");
+    // return this.httpClient.post<any>(this.baseUrl+ "forgot-password",{params});
   }
 
   public signOut() {
