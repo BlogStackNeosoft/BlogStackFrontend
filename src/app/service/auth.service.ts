@@ -36,7 +36,7 @@ export class AuthService {
   public forgotPassword(email: string): Observable<any> {
     let params=new HttpParams();
     params=params.set("email",email);
-    return this.httpClient.post(this.baseUrl+"forgot-password?"+params,"");
+    return this.httpClient.post(this.baseUrl+"forgot-password/?"+params,"");
     // return this.httpClient.post<any>(this.baseUrl+ "forgot-password",{params});
   }
 
@@ -47,5 +47,9 @@ export class AuthService {
 
   public getToken() {
     return localStorage.getItem("jwt_token")
+  }
+
+  public getEmail(){
+    return localStorage.getItem("email_id")
   }
 }

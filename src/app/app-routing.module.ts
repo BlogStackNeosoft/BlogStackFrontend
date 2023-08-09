@@ -10,11 +10,12 @@
   import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
   import {RoutingErrorComponent} from './components/routing-error/routing-error.component'
   import { ServiceUnavailableComponent } from './components/service-unavailable/service-unavailable.component';
-import { CategoryComponent } from './components/stack/qna/components/category/category.component';
-import { UserListComponent } from './components/Admin/components/user-list/user-list.component';
-import { AdminDashboardComponent } from './components/Admin/components/admin-dashboard/admin-dashboard.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { OtpValidationComponent } from './components/otp-validation/otp-validation.component';
+  import { CategoryComponent } from './components/stack/qna/components/category/category.component';
+  import { UserListComponent } from './components/Admin/components/user-list/user-list.component';
+  import { AdminDashboardComponent } from './components/Admin/components/admin-dashboard/admin-dashboard.component';
+  import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+  import { OtpValidationComponent } from './components/otp-validation/otp-validation.component';
+  import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
   const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -24,6 +25,7 @@ import { OtpValidationComponent } from './components/otp-validation/otp-validati
     { path:"forgot", component: ForgotPasswordComponent },
     { path: "otp", component: OtpValidationComponent },
     { path: "blogs", component: BlogsComponent },
+    { path: "reset-password", component: ResetPasswordComponent},
     {
       path: "stack", component: StackComponent,
       loadChildren: () => import('../app/components/stack/qna/qna.module').then(m => m.QnaModule)
