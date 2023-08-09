@@ -30,6 +30,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
   imports: [
     CommonModule,
+    AdminRoutingModule,
     MatButtonModule,
     MatStepperModule,
     FormsModule,

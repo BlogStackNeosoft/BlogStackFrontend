@@ -8,6 +8,7 @@ import { Categories, PostQuestionBean, Subcategories } from 'src/app/model/model
 import { QnaService } from 'src/app/service/qna.service';
 import { CategoryService } from 'src/app/service/category-service.service';
 import { SubcategoryService } from 'src/app/service/subcategory.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-post-questions',
@@ -28,9 +29,6 @@ export class PostQuestionsComponent implements OnInit {
 
   categories: Categories[] = [];
   subcategories: Subcategories[] = [];
-  
-
-  
   
   @ViewChild('tagInput')
   tagInput!: ElementRef<HTMLInputElement>;
@@ -67,21 +65,37 @@ export class PostQuestionsComponent implements OnInit {
   }
 
   postQuestionBean: PostQuestionBean=<PostQuestionBean>{}
+  reviewQBean: PostQuestionBean=<PostQuestionBean>{}
   postQuestion() { 
     this.postQuestionBean.content = this.firstFormGroup.get('questionCtrl')?.value
     this.postQuestionBean.title = this.firstFormGroup.get('titleCtrl')?.value
-    this.postQuestionBean.category_id = this.secondFormGroup.get('categoryCtrl')?.value
-    this.postQuestionBean.sub_category_id = this.secondFormGroup.get('subcategoryCtrl')?.value
+    this.postQuestionBean.category_id = this.secondFormGroup.get('categoryCtrl')?.value.category_id
+   
+    this.postQuestionBean.sub_category_id = this.secondFormGroup.get('subcategoryCtrl')?.value.subcategory_id
+    console.log("sub_category_id",this.postQuestionBean)
     this.postQuestionBean.tag_id = this.secondFormGroup.get('tagCtrl')?.value
     this.postQuestionBean.code_snippet = this.thirdFormGroup.get('codeCtrl')?.value
     this.postQuestionBean.status = "ACTIVE"
-    //this.postQuestionBean.user_id = localStorage.getItem("")
+    console.log(localStorage.getItem("user_id"));
+    this.postQuestionBean.user_id = localStorage.getItem("user_id")?.toString()!
     console.log("postQBean",this.postQuestionBean);
-
+    
     this.qnaService.postQuestion(this.postQuestionBean).subscribe(data=>{
         console.log("question posted ", this.postQuestionBean);
-        
     })
+    Swal.fire("Question Posted!!!")
+  }
+
+  review(){
+    this.reviewQBean.content = this.firstFormGroup.get('questionCtrl')?.value
+    this.reviewQBean.title = this.firstFormGroup.get('titleCtrl')?.value
+    this.reviewQBean.category_id = this.secondFormGroup.get('categoryCtrl')?.value.category
+   
+    this. reviewQBean.sub_category_id = this.secondFormGroup.get('subcategoryCtrl')?.value.subcategory
+    console.log("sub_category_id",this.postQuestionBean)
+    this.reviewQBean.tag_id = this.secondFormGroup.get('tagCtrl')?.value
+    this.reviewQBean.code_snippet = this.thirdFormGroup.get('codeCtrl')?.value
+    console.log("reviewQBean",this. reviewQBean);
   }
 
   fetchAllCategories(){

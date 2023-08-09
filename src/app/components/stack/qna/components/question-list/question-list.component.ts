@@ -69,8 +69,12 @@ export class QuestionListComponent implements OnInit {
   }
 
   postQuestion() {
-    this.router.navigate(['stack/post-question'])
-    this.router.navigate(["stack/post-question"]);
+    if(this.role!=null){
+      this.router.navigate(["stack/post-question"]);
+    }else
+    {
+      Swal.fire("Please Login")
+    }
 
   }
 }

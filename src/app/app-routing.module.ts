@@ -10,15 +10,22 @@
   import { UpdateProfileComponent } from './components/update-profile/update-profile.component';
   import {RoutingErrorComponent} from './components/routing-error/routing-error.component'
   import { ServiceUnavailableComponent } from './components/service-unavailable/service-unavailable.component';
-import { CategoryComponent } from './components/stack/qna/components/category/category.component';
-import { UserListComponent } from './components/Admin/components/user-list/user-list.component';
+  import { CategoryComponent } from './components/stack/qna/components/category/category.component';
+  import { UserListComponent } from './components/Admin/components/user-list/user-list.component';
+  import { AdminDashboardComponent } from './components/Admin/components/admin-dashboard/admin-dashboard.component';
+  import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+  import { OtpValidationComponent } from './components/otp-validation/otp-validation.component';
+  import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
   const routes: Routes = [
     { path: "", component: HomeComponent },
     { path: "home", component: HomeComponent },
     { path: "about", component: AboutComponent },
     { path: "login", component: LoginComponent },
+    { path:"forgot", component: ForgotPasswordComponent },
+    { path: "otp", component: OtpValidationComponent },
     { path: "blogs", component: BlogsComponent },
+    { path: "reset-password", component: ResetPasswordComponent},
     {
       path: "stack", component: StackComponent,
       loadChildren: () => import('../app/components/stack/qna/qna.module').then(m => m.QnaModule)
@@ -29,9 +36,10 @@ import { UserListComponent } from './components/Admin/components/user-list/user-
     { path: "update-profile", component: UpdateProfileComponent },
     { path: "category", component: CategoryComponent },
     { path: "service-unavailable", component: ServiceUnavailableComponent },
-    // {
-    //   path: 'stack', loadChildren: () => import('../app/components/stack/qna/qna.module').then(m => m.QnaModule)
-    // },
+    {
+      path: 'admin',component:AdminDashboardComponent, loadChildren: () => import('../app/components/Admin/admin.module').then(m => m.AdminModule)
+    },
+    
     //Please dont move this, error component should be last path 
     { path: "**", component: RoutingErrorComponent }
   ];

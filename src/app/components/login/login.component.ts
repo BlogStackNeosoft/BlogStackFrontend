@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 
 export class LoginComponent implements OnInit {
   signUp!: FormGroup;
-  LoginForm!: FormGroup;
+  Login!: FormGroup;
   public showPassword: boolean = false;
   public showConfirmPassword: boolean = false;
   constructor(
@@ -45,13 +45,14 @@ export class LoginComponent implements OnInit {
   }
 
   initLoginForm() {
-    this.LoginForm = this.fb.group({
+    this.Login = this.fb.group({
       email_id: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
     });
   }
 
   signBean: User = <User>{};
+  
   signUpForm() {
 
     Object.values(this.signUp.controls).forEach((control) => {
@@ -95,8 +96,8 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log('value of login form', this.LoginForm.value);
-    this.authService.login(this.LoginForm.value).subscribe((data) => {
+    console.log('value of login form', this.Login.value);
+    this.authService.login(this.Login.value).subscribe((data) => {
       console.log(data.status)
       if(data.status){
         console.log(event);
@@ -108,7 +109,7 @@ export class LoginComponent implements OnInit {
         localStorage.setItem('role',data.data.user_roles[0]);
         Swal.fire('Successfully Login').then(() => {
           if (localStorage.getItem('role') == 'admin') {
-            this.router.navigate(['/admin/user-list']);
+            this.router.navigate(['/admin']);
           } else {
             this.router.navigate(['/blogs']);
           }
@@ -121,5 +122,9 @@ export class LoginComponent implements OnInit {
         });
       }
     });
+  }
+
+  forgot(){
+    this.router.navigate(['/forgot'])
   }
 }
