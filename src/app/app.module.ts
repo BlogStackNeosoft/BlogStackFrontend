@@ -32,6 +32,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { OtpValidationComponent } from './components/otp-validation/otp-validation.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { RoutingErrorComponent } from './components/routing-error/routing-error.component';
 import { ServiceUnavailableComponent } from './components/service-unavailable/service-unavailable.component';
 import { QuestionsByCategoryComponent } from './components/stack/qna/components/questions-by-category/questions-by-category.component';
@@ -42,9 +43,7 @@ import { UpdateUserComponent } from './components/update-user/update-user.compon
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { AuthService } from './service/auth.service';
-// import { NgxOtpInputModule } from 'ngx-otp-input';
-// import { FormsModule } from '@angular/forms';
-// import { UntypedFormArray } from '@angular/forms';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -62,7 +61,8 @@ import { AuthService } from './service/auth.service';
         ServiceUnavailableComponent,
         QuestionsByCategoryComponent,
         ForgotPasswordComponent,
-        OtpValidationComponent
+        OtpValidationComponent,
+        ResetPasswordComponent
     ],
 
     imports: [
@@ -88,11 +88,9 @@ import { AuthService } from './service/auth.service';
         MatSelectModule,
         MatListModule,
         MatCardModule,
-        MatProgressSpinnerModule,
-        // NgxOtpInputModule,
-        // FormsModule,
-        QnaModule,
+         QnaModule,
         AdminModule
+       
     ],
 
 exports: [StackComponent],
