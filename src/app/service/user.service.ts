@@ -9,9 +9,9 @@ import { Payload, Root, User } from '../model/model';
 
 export class UserService {
 
-  // baseUrl = 'http://ec2-18-212-53-8.compute-1.amazonaws.com:9091/v1.0/user/'
-
-  baseUrl = 'http://localhost:8080/v1.0/user/'
+   //baseUrl = 'http://ec2-18-212-53-8.compute-1.amazonaws.com:9091/v1.0/user/'
+    baseUrl="http://localhost:9091/v1.0/user/"
+  //baseUrl = 'http://localhost:8080/v1.0/user/'
 
   constructor(private httpClient: HttpClient) { }
 
@@ -28,6 +28,7 @@ export class UserService {
   }
 
   public fetchByEmailId(email_id: string | null): Observable<any> {
+    console.log("fetchByEmailId");
     return this.httpClient.get(this.baseUrl + email_id);
   }
 
