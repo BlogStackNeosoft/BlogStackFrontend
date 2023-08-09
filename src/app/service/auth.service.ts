@@ -36,8 +36,7 @@ export class AuthService {
   public forgotPassword(email: string): Observable<any> {
     let params=new HttpParams();
     params=params.set("email",email);
-    return this.httpClient.post(this.baseUrl+"forgot-password?"+params,"");
-    // return this.httpClient.post<any>(this.baseUrl+ "forgot-password",{params});
+    return this.httpClient.post(this.baseUrl+"forgot-password/?"+params,"");
   }
 
   public signOut() {

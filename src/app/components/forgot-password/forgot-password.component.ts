@@ -34,12 +34,13 @@ export class ForgotPasswordComponent implements OnInit {
     this.authService.forgotPassword(this.Forgot.get('email_id')?.value).subscribe((data)=>{
       console.log(data.status)
       if (data.status) {
+        localStorage.setItem('email_id', data.email_id);
         Swal.fire('Successfully OTP send to your Email Id').then(()=>{
-          this.router.navigate(['/login']);
+          this.router.navigate(['/otp']);
         })
       }else
       {
-        this.router.navigate(['/otp']);
+        this.router.navigate(['/login']);
       }
     })
   }
