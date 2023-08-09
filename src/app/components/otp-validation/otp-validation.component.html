@@ -1,16 +1,21 @@
 <div class="container">
     <div class="row">
       <div class="col-6">
-            <h4 class="text-center" style="padding-top: 10%;"><b>Forgot Password?</b></h4>
+            <h4  style="padding-top: 10%; text-align: center;"><b>Enter OTP Code</b></h4>
+            <p style="text-align: center;">Your OTP code was sent to you via email</p>
             <form class="example-form" >
               <div style="padding: 20px">
-                <mat-form-field class="example-full-width">
-                    <mat-label>Email Id</mat-label>
-                    <input matInput placeholder="Email Id" formControlName="email_id" />
-                  </mat-form-field>
+                  <div class="otp-field" style="padding-left: 8%;">
+                    <input type="number" />
+                    <input type="number" />
+                    <input type="number" />
+                    <input type="number" />
+                    <input type="number" />
+                    <input type="number" />
+                  </div>
               </div>
             </form>
-            <button mat-raised-button color="warn" class="btnstyle">Send Mail</button>
+            <div style="padding-left: 7%;"><button mat-raised-button color="warn" class="btnstyle" >Verify OTP</button></div>
       </div>
       <div class="col-6">
         <img src="../../assets/hero.gif" alt="heroImg">
