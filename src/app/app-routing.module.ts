@@ -16,6 +16,7 @@
   import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
   import { OtpValidationComponent } from './components/otp-validation/otp-validation.component';
   import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { BlogListComponent } from './components/Admin/components/blog-list/blog-list.component';
 
   const routes: Routes = [
     { path: "", component: HomeComponent },
@@ -38,6 +39,9 @@
     { path: "service-unavailable", component: ServiceUnavailableComponent },
     {
       path: 'admin',component:AdminDashboardComponent, loadChildren: () => import('../app/components/Admin/admin.module').then(m => m.AdminModule)
+    },
+    {
+      path: 'blog-list',component:BlogListComponent, loadChildren: () => import('../app/components/Admin/admin.module').then(m => m.AdminModule)
     },
     
     //Please dont move this, error component should be last path 

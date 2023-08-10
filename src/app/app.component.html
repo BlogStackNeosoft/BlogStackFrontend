@@ -1,6 +1,7 @@
 
 <!-- <app-navbar></app-navbar> -->
 <div>
+    <div>
     <mat-toolbar class="mat-elevation-z8">
         <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
             <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
@@ -38,7 +39,8 @@
             <img src="../../assets/bars.svg" alt="timesicon" id="menu_toggle" />
         </nav>
     </mat-toolbar>
-
+    </div>
+    <div>
     <mat-sidenav-container>
         <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8" (click)="sidenav.toggle()">
             <img class="avatar" src="../../../assets/admin.png" /> <i class="bi bi-pencil-square" style="color: black;"
@@ -81,4 +83,5 @@
             <router-outlet></router-outlet>
         </mat-sidenav-content>
     </mat-sidenav-container>
+    </div>
 </div>

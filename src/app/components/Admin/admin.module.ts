@@ -19,13 +19,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatStepperModule } from '@angular/material/stepper';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { BlogListComponent } from './components/blog-list/blog-list.component';
 
 
 
 @NgModule({
   declarations: [
     UserListComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    BlogListComponent
   ],
 
   imports: [

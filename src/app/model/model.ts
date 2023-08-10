@@ -114,3 +114,12 @@ export interface Subcategories{
   category_id: string
   added_on: string
 }
+
+export interface Blog {
+  status: string
+  blog_id: string
+  blog_name: string
+  blog_picture: string
+  blog_content: string
+  added_on: string
+}
