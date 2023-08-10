@@ -28,6 +28,7 @@ export class UserService {
   }
 
   public fetchByEmailId(email_id: string | null): Observable<any> {
+    console.log("fetchByEmailId");
     return this.httpClient.get(this.baseUrl + email_id);
   }
 
