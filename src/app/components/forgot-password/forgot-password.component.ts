@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
-import { AuthService } from 'src/app/service/auth.service';
 import { UserService } from 'src/app/service/user.service';
 import Swal from 'sweetalert2';
 
@@ -16,7 +15,7 @@ export class ForgotPasswordComponent implements OnInit {
 
   constructor(private fb:FormBuilder,
     private router: Router,
-    private authService: AuthService,
+    private userService: UserService,
     ) { }
 
   ngOnInit(): void {
@@ -31,10 +30,10 @@ export class ForgotPasswordComponent implements OnInit {
 
   sendMail(){
     console.log('value of forgot password form', this.Forgot.value);
-    this.authService.forgotPassword(this.Forgot.get('email_id')?.value).subscribe((data)=>{
+    this.userService.forgotPassword(this.Forgot.get('email_id')?.value).subscribe((data)=>{
       console.log(data.status)
       if (data.status) {
-        localStorage.setItem('email_id', data.email_id);
+        localStorage.setItem('email_id', data.data.email_id);
         Swal.fire('Successfully OTP send to your Email Id').then(()=>{
           this.router.navigate(['/otp']);
         })

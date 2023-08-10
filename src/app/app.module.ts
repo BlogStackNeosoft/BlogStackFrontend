@@ -43,6 +43,8 @@ import { UpdateUserComponent } from './components/update-user/update-user.compon
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { AuthService } from './service/auth.service';
+import { NgOtpInputModule } from 'ng-otp-input';
+
 
 @NgModule({
     declarations: [
@@ -89,7 +91,8 @@ import { AuthService } from './service/auth.service';
         MatListModule,
         MatCardModule,
          QnaModule,
-        AdminModule
+        AdminModule,
+        NgOtpInputModule
        
     ],
 
