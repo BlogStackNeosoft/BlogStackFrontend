@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgOtpInputComponent, NgOtpInputConfig } from 'ng-otp-input';
+import { AuthService } from 'src/app/service/auth.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-otp-validation',
@@ -7,9 +11,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OtpValidationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+              private userService: UserService
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  otp!: any;
+  showOtpComponent = true;
+  focusToFirstElementAfterValueUpdate: boolean = false;
+  @ViewChild(NgOtpInputComponent, { static: false }) ngOtpInput!: NgOtpInputComponent;
+  config: NgOtpInputConfig = {
+    allowNumbersOnly: true,
+    length: 5,
+    isPasswordInput: false,
+    disableAutoFocus: false,
+    placeholder: ''
+  };
+  onOtpChange(otp: string) {
+    this.otp = otp;
+  }
+otpBean:any=<any>{};
+
+  verifyOtp(){
+    console.log(this.otp);
+    this.otpBean.email=localStorage.getItem("email_id");
+    this.otpBean.otp=this.otp;
+    this.userService.verifyOtp(this.otpBean).subscribe((data)=>{
+      console.log("OTP is",data);
+    })
   }
 
 }

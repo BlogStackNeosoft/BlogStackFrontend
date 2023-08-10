@@ -2,20 +2,19 @@
     <div class="row">
       <div class="col-6">
             <h4  style="padding-top: 10%; text-align: center;"><b>Enter OTP Code</b></h4>
-            <p style="text-align: center;">Your OTP code was sent to you via email</p>
+            <p style="text-align: center;">Your OTP code was sent to you via email!</p>
             <form class="example-form" >
-              <div style="padding: 20px">
-                  <div class="otp-field" style="padding-left: 8%;">
-                    <input type="number" />
-                    <input type="number" />
-                    <input type="number" />
-                    <input type="number" />
-                    <input type="number" />
-                    <input type="number" />
+                  <div class="content">
+                    <div class="o-c">
+                      <div style="padding-left: 25%;">
+                          <ng-otp-input (onInputChange)="onOtpChange($event)" *ngIf="showOtpComponent" [config]="config"></ng-otp-input>
+                          <span class="o-t-p">
+                          </span>
+                        </div>
+                      </div>
                   </div>
-              </div>
-            </form>
-            <div style="padding-left: 7%;"><button mat-raised-button color="warn" class="btnstyle" >Verify OTP</button></div>
+            </form><br>
+            <div style="padding-left: 7%;"><button mat-raised-button color="warn" class="btnstyle" (click)="verifyOtp()">Verify OTP</button></div>
       </div>
       <div class="col-6">
         <img src="../../assets/hero.gif" alt="heroImg">
