@@ -33,13 +33,6 @@ export class AuthService {
     return this.httpClient.post<any>(this.baseUrl+"/refresh-token/"+localStorage.getItem('refresh_token'),"")
   }
 
-  public forgotPassword(email: string): Observable<any> {
-    let params=new HttpParams();
-    params=params.set("email",email);
-    return this.httpClient.post(this.baseUrl+"forgot-password/?"+params,"");
-    // return this.httpClient.post<any>(this.baseUrl+ "forgot-password",{params});
-  }
-
   public signOut() {
     localStorage.clear();
     Swal.fire('Successfully Logout').then(()=>{this.router.navigate([""])})
