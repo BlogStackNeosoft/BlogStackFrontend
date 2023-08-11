@@ -7,7 +7,7 @@ import { Category } from '../model/model';
 })
 export class CategoryService {
 
-  baseUrl = 'http://localhost:9090/v1.0/category/'
+  baseUrl = 'http://localhost:9091/v1.0/category/'
   questionByCategoryurl = 'http://localhost:9090/v1.0/question/category/'
   
   
@@ -30,8 +30,8 @@ export class CategoryService {
     return this.httpClient.delete(this.baseUrl+id);
   }
 
-  public getQuestionByCategory(data : string): Observable<any>{
-    console.log(data)
-    return this.httpClient.get(this.questionByCategoryurl+data)
-  }
+  // public getQuestionByCategory(data : string): Observable<any>{
+  //   console.log(data)
+  //   return this.httpClient.get(this.questionByCategoryurl+data)
+  // }
 }
