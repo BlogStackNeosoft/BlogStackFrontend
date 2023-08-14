@@ -18,11 +18,11 @@ export class AuthService {
   }
 
   public signUp(user: User): Observable<any> {
-    return this.httpClient.post<any>(this.baseUrl+"/sign-up/",user);
+    return this.httpClient.post<any>(this.baseUrl+"sign-up/",user);
   }
 
   public login(user: User): Observable<any>{
-    return this.httpClient.post<any>(this.baseUrl+"/sign-in/",user)
+    return this.httpClient.post<any>(this.baseUrl+"sign-in/",user)
     .pipe(catchError((res: ObservableInput<any>)=>{
         console.log("Response : ",res)
         return res
@@ -30,7 +30,24 @@ export class AuthService {
   }
 
   public refreshToken(): Observable<any>{
-    return this.httpClient.post<any>(this.baseUrl+"/refresh-token/"+localStorage.getItem('refresh_token'),"")
+    return this.httpClient.post<any>(this.baseUrl+"refresh-token/"+localStorage.getItem('refresh_token'),"")
+  }
+
+  public forgotPassword(email: string): Observable<any> {
+    let params=new HttpParams();
+    params=params.set("email",email);
+    return this.httpClient.post(this.baseUrl+"forgot-password/?"+params,"");
+  }
+
+  public verifyOtp(otpBean:any): Observable<any>{
+    return this.httpClient.post(this.baseUrl+"validate-otp/",otpBean);
+  }
+
+  public changePassword(email: any,password: any): Observable<any>{
+    let emailParams = new HttpParams()
+    emailParams = emailParams.set("email",email)
+    emailParams = emailParams.set("password",password)
+    return this.httpClient.patch(this.baseUrl+"reset-password/"+"?"+emailParams,null)
   }
 
   public signOut() {

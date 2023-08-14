@@ -11,6 +11,8 @@ export class UserService {
 
   // baseUrl = 'http://ec2-18-212-53-8.compute-1.amazonaws.com:9091/v1.0/user/'
 
+  // baseUrl = 'http://localhost:8080/v1.0/user'
+
   baseUrl = 'http://localhost:9095/v1.0/user/'
 
   constructor(private httpClient: HttpClient) { }
@@ -40,14 +42,4 @@ export class UserService {
     return this.httpClient.put(this.baseUrl + "profile-photo/" + email, formData);
   }
   
-  public forgotPassword(email: string): Observable<any> {
-    let params=new HttpParams();
-    params=params.set("email",email);
-    return this.httpClient.post(this.baseUrl+"forgot-password/?"+params,"");
-  }
-
-  public verifyOtp(otpBean:any): Observable<any>{
-    return this.httpClient.post(this.baseUrl+"validate-otp/",otpBean);
-  }
-
 }

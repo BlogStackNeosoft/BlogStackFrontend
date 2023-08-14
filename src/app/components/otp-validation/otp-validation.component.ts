@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgOtpInputComponent, NgOtpInputConfig } from 'ng-otp-input';
 import { AuthService } from 'src/app/service/auth.service';
-import { UserService } from 'src/app/service/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-otp-validation',
@@ -12,7 +12,7 @@ import { UserService } from 'src/app/service/user.service';
 export class OtpValidationComponent implements OnInit {
 
   constructor(private router: Router,
-              private userService: UserService
+              private authService: AuthService
     ) { }
 
   ngOnInit(): void {
@@ -24,7 +24,7 @@ export class OtpValidationComponent implements OnInit {
   @ViewChild(NgOtpInputComponent, { static: false }) ngOtpInput!: NgOtpInputComponent;
   config: NgOtpInputConfig = {
     allowNumbersOnly: true,
-    length: 5,
+    length: 6,
     isPasswordInput: false,
     disableAutoFocus: false,
     placeholder: ''
@@ -38,9 +38,15 @@ otpBean:any=<any>{};
     console.log(this.otp);
     this.otpBean.email=localStorage.getItem("email_id");
     this.otpBean.otp=this.otp;
-    this.userService.verifyOtp(this.otpBean).subscribe((data)=>{
+    this.authService.verifyOtp(this.otpBean).subscribe((data)=>{
       console.log("OTP is",data);
+    if(data.status){
+      Swal.fire('OTP Verify Successfully').then(()=>{
+        this.router.navigate(['/reset']);
+      })
+    }else{
+      this.router.navigate(['/login']);
+    }
     })
   }
-
 }

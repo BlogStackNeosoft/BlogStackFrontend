@@ -25,7 +25,7 @@
     { path:"forgot", component: ForgotPasswordComponent },
     { path: "otp", component: OtpValidationComponent },
     { path: "blogs", component: BlogsComponent },
-    { path: "reset-password", component: ResetPasswordComponent},
+    { path: "reset", component: ResetPasswordComponent},
     {
       path: "stack", component: StackComponent,
       loadChildren: () => import('../app/components/stack/qna/qna.module').then(m => m.QnaModule)
