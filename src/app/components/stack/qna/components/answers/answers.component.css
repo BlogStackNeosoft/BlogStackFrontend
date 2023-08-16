@@ -1,0 +1,49 @@
+.ques-descrp{
+    background-color: white;
+    margin-left: 2%;
+    margin-top: 1.5%;
+    width: 97%;
+
+}
+
+.chip {
+    display: inline-block;
+    padding: 0 25px;
+    height: 30px;
+    font-size: 16px;
+    line-height: 30px;
+    border-radius: 30px;
+    background-color: #f1f1f1;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.col{
+    margin-top: 20px;
+  }
+
+.menu-btn{
+    border: 2px solid;
+    margin-top: -14%;
+    margin-left: -14%;
+  }
+ 
+.menu-cont{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    /* margin-right: 10px; */
+}
+
+.filter-cont{
+    flex-wrap: nowrap;
+}
+
+.icon-cont{
+    background-color: #dfd3d3;
+    border-radius: 50%;
+    padding: 1.5%;
+    font-size: 46px;
+    padding-left: 20%;
+    transform: scale(0.5);
+}
+

@@ -75,6 +75,11 @@ export class QuestionListComponent implements OnInit {
     {
       Swal.fire("Please Login")
     }
+  }
 
+  fetchAnswers(){
+    console.log("FUNC CALLED");
+    this.router.navigate(['stack/answers']);
+    
   }
 }

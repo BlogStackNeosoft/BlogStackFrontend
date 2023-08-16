@@ -20,13 +20,16 @@ import { MatListModule } from '@angular/material/list';
 import { MatDividerModule } from '@angular/material/divider';
 import { CategoryComponent } from './components/category/category.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { AnswersComponent } from './components/answers/answers.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @NgModule({
   declarations: [
     PostQuestionsComponent,
     QuestionListComponent,
-    CategoryComponent
+    CategoryComponent,
+    AnswersComponent
   ],
   imports: [
     CommonModule,
@@ -47,6 +50,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatCardModule,
     MatListModule,
     MatDividerModule,
+    MatMenuModule,
     MatProgressSpinnerModule
   ],
   exports: [
