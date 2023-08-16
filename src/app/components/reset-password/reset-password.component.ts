@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthService } from 'src/app/service/auth.service';
@@ -12,7 +12,8 @@ import { AuthService } from 'src/app/service/auth.service';
 export class ResetPasswordComponent implements OnInit {
 
   Reset !:FormGroup;
-  
+  public showPassword: boolean = false;
+  public showConfirmPassword: boolean = false;
 
   constructor(private formBuilder: FormBuilder,
               private router: Router,
@@ -22,14 +23,11 @@ export class ResetPasswordComponent implements OnInit {
     this.initResetForm();
   }
 
-  PASSWORD_PATTERN ="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#&()–[{}]:;',?/*~$^+=<>]).{8,20}$";
-
   initResetForm() {
     this.Reset = this.formBuilder.group({
-      password: ['',[Validators.required,Validators.min(8),Validators.max(16),Validators.pattern("^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
-      )]],
+      password: ['',[Validators.required,PasswordStrengthValidator]],
       confirmPassword: ['',[Validators.required]]
-    }) 
+    })
   }
 
   resetPassword(){
@@ -43,7 +41,60 @@ export class ResetPasswordComponent implements OnInit {
       this.router.navigate(['/login'])
       if(data.status == false)
       this.router.navigate(['/reset'])
-    })
+    })}
   }
+}
+ 
+
+export const PasswordStrengthValidator = function (control: AbstractControl): ValidationErrors | null {
+
+  let value: string = control.value || '';
+  let set: any[] = ["Lower Case", "Upper Case", "Number", "Special Characters"];
+
+  console.log("set values", set.values())
+
+  console.log("message", messageGenerator(set));
+
+  if (!value) {
+    return null
   }
+
+  let upperCaseCharacters = /[A-Z]+/g
+  let lowerCaseCharacters = /[a-z]+/g
+  let numberCharacters = /[0-9]+/g
+  let specialCharacters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+  if (upperCaseCharacters.test(value)) {
+    set[1] = "";
+
+  }
+  if (lowerCaseCharacters.test(value)) {
+    set[0] = "";
+
+  }
+  if (numberCharacters.test(value)) {
+    set[2] = "";
+
+  }
+  if (specialCharacters.test(value)) {
+    set[3] = "";
+
+  }
+  return {
+    passwordStrength: 'Password must contain the following: ' + messageGenerator(set),
+  }
+}
+
+function messageGenerator(map: any[]): string {
+
+  let msg: string = "";
+
+  for (let index = 0; index <= map.length - 1; index++) {
+    console.log("map index value: " + "index" + index, map[index]);
+    if(map[index]==""){
+    }else{
+      msg = msg + map[index] + ", ";
+    }
+  }
+  return msg;
 }
