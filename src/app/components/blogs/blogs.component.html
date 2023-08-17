@@ -1,1 +1,18 @@
-<h1>Blog Component</h1>
+<div class="container" style="text-align: center;">
+    <div class="row">
+        <div class="col-12 text-center" >
+            <button  style="width:50%" type="button" class="btn btn-outline-danger text-start" (click)="openCityDialog()"><i class="bi bi-search" style="margin-right: 1%"></i>Search Blogs</button>
+        </div>
+    </div>
+</div>
+<ng-template let-data #myCityDialog>
+    <h2 mat-dialog-title><div class="form-outline">
+        <div class="input-icons">
+            <i class="bi bi-search" style="padding-left: 38%;"></i>
+        <input type="search" id="form1" class="form-control" placeholder="Sreach blogs" aria-label="Search" />
+        </div>
+      </div>
+    </h2>
+    <div mat-dialog-actions><button mat-button mat-dialog-close>Close</button>
+    </div>
+  </ng-template> 
