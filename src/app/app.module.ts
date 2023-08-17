@@ -44,6 +44,7 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { AuthenticationInterceptor } from './interceptors/authentication.interceptor';
 import { AuthService } from './service/auth.service';
 import { NgOtpInputModule } from 'ng-otp-input';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -92,7 +93,8 @@ import { NgOtpInputModule } from 'ng-otp-input';
         MatCardModule,
          QnaModule,
         AdminModule,
-        NgOtpInputModule
+        NgOtpInputModule,
+        MatDialogModule
        
     ],
 
