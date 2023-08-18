@@ -62,4 +62,8 @@ export class AuthService {
   public getEmail(){
     return localStorage.getItem("email_id")
   }
+
+  public getUserId(){
+    return localStorage.getItem("user_id")
+  }
 }

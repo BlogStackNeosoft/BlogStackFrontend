@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpErrorResponse} from '@angular/common/http'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { User } from 'src/app/model/model';
 import { AuthService } from 'src/app/service/auth.service';
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
       email_id: ['', [Validators.required,Validators.email]],
-      password: ['', [Validators.required]],
+      password: ['', [Validators.required,PasswordStrengthValidator]],
       confirmPassword: ['', [Validators.required]]
     });
   }
@@ -126,4 +126,57 @@ export class LoginComponent implements OnInit {
   forgot(){
     this.router.navigate(['/forgot'])
   }
+}
+
+export const PasswordStrengthValidator = function (control: AbstractControl): ValidationErrors | null {
+
+  let value: string = control.value || '';
+  let set: any[] = ["Lower Case", "Upper Case", "Number", "Special Characters"];
+
+  console.log("set values", set.values())
+
+  console.log("message", messageGenerator(set));
+
+  if (!value) {
+    return null
+  }
+
+  let upperCaseCharacters = /[A-Z]+/g
+  let lowerCaseCharacters = /[a-z]+/g
+  let numberCharacters = /[0-9]+/g
+  let specialCharacters = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+
+  if (upperCaseCharacters.test(value)) {
+    set[1] = "";
+
+  }
+  if (lowerCaseCharacters.test(value)) {
+    set[0] = "";
+
+  }
+  if (numberCharacters.test(value)) {
+    set[2] = "";
+
+  }
+  if (specialCharacters.test(value)) {
+    set[3] = "";
+
+  }
+  return {
+    passwordStrength: 'Password must contain the following: ' + messageGenerator(set),
+  }
+}
+
+function messageGenerator(map: any[]): string {
+
+  let msg: string = "";
+
+  for (let index = 0; index <= map.length - 1; index++) {
+    console.log("map index value: " + "index" + index, map[index]);
+    if(map[index]==""){
+    }else{
+      msg = msg + map[index] + ", ";
+    }
+  }
+  return msg;
 }

@@ -47,6 +47,9 @@
                 <mat-icon matSuffix (click)="showPassword = !showPassword">{{showPassword ?
                   'visibility':'visibility_off'}}</mat-icon>
               </mat-form-field>
+              <div>
+                <p *ngIf="signUp.controls['password'].errors" class="error" style="color: red;">{{signUp.controls['password'].errors['passwordStrength']}}</p>
+              </div>
               <mat-form-field class="example-full-width">
                 <mat-label>Confirm Password</mat-label>
                 <input matInput [type]="showConfirmPassword ? 'text' : 'password'" placeholder="Confirm Password"

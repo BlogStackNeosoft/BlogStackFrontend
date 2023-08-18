@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-blogs',
@@ -8,19 +6,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./blogs.component.css']
 })
 export class BlogsComponent implements OnInit {
-  search!:string;
-  role!:string|null;
-  toggleButton:boolean= false;
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.role=localStorage?.getItem("role")
-    console.log("the role value is",this.role)
   }
-
-  logout(){
-    localStorage.clear();
-    Swal.fire('Successfully Logout').then(()=>{this.router.navigate([""])})
-  }
+  
 }

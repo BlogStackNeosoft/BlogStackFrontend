@@ -1,4 +1,6 @@
 export interface User {
+  name: string
+  city: string
   status_set: any
   blogStackRoleDetails: any
   email_id: string
