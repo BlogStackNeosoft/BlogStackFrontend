@@ -45,6 +45,7 @@ import { AuthenticationInterceptor } from './interceptors/authentication.interce
 import { AuthService } from './service/auth.service';
 import { NgOtpInputModule } from 'ng-otp-input';
 import {MatDialogModule} from '@angular/material/dialog';
+import { BlogModule } from './components/blogs/blog/blog.module';
 
 
 @NgModule({
@@ -91,14 +92,15 @@ import {MatDialogModule} from '@angular/material/dialog';
         MatSelectModule,
         MatListModule,
         MatCardModule,
-         QnaModule,
+        QnaModule,
         AdminModule,
+        BlogModule,
         NgOtpInputModule,
-        MatDialogModule
+        MatDialogModule,
        
     ],
 
-exports: [StackComponent],
+exports: [StackComponent, BlogsComponent],
 
 providers: [AuthService,
   { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
