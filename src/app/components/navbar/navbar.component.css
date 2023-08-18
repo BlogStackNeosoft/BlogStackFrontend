@@ -1,24 +1,25 @@
 a{
-    text-decoration: none;
-      color:#f12b20;
+  text-decoration: none;
+    color:#f12b20;
 
 }
 
 .nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 60px;
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: space-between;
+ /* padding: 0 60px;  */
 }
 
 .nav_link :hover{
-  color: black;
-  }
+color: black;
+}
 
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-  }
+/* header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+} */

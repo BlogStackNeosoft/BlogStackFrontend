@@ -17,9 +17,9 @@ export class QuestionsByCategoryComponent implements OnInit {
     this.categorySharedService.getCategory().subscribe(data => {
       this.category = data
     })
-    this.categoryService.getQuestionByCategory(this.category).subscribe((data) =>{
-      console.log(data.data)
-    })
+    // this.categoryService.getQuestionByCategory(this.category).subscribe((data) =>{
+    //   console.log(data.data)
+    // })
   }
 
 }
