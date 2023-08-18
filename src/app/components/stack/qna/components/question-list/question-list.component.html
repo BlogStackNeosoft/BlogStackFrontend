@@ -9,7 +9,7 @@
                 <div class="col-sm-5 col-md-6">
                     <h3>{{questionList.length}} Questions</h3>
                 </div>
-            </div>
+            </div>      
 
             <div class="col-2"><button mat-raised-button type="button" color="warn" (click)="postQuestion()">Ask
                     Question</button></div>
@@ -20,7 +20,7 @@
         <!-- <div class="row"> -->
         <div *ngFor="let q of questionList">
             <mat-card>
-                <mat-card-content>
+                <mat-card-content (click)="fetchAnswers(q.question_id)">
                     <mat-list>
                         <mat-list-item><b>{{q.title}}</b></mat-list-item>
                         <mat-divider></mat-divider>

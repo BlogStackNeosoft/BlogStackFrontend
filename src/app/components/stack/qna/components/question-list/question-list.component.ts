@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Question } from 'src/app/model/model';
+import { CommonSharedService } from 'src/app/service/common-shared.service';
 import { QnaService } from 'src/app/service/qna.service';
 import Swal from 'sweetalert2';
 
@@ -18,7 +19,8 @@ export class QuestionListComponent implements OnInit {
   toggleButton: boolean = false;
   isLoaded : boolean = true;
 
-  constructor(private router: Router, private qnaService: QnaService) { }
+
+  constructor(private router: Router, private qnaService: QnaService, private commentService: CommonSharedService) { }
 
   ngOnInit(): void {
     this.role = localStorage?.getItem("role")
@@ -60,10 +62,8 @@ export class QuestionListComponent implements OnInit {
   // }
 
   fetchAllQuestions(): void {
-    this.qnaService.fetchAllQuestions().subscribe((data: { data: { payload: Question[]; }; }) => {
-      console.log("Questions", data);
+    this.qnaService.fetchAllQuestions().subscribe((data) => {
       this.questionList = data.data.payload
-      console.log("questionList", this.questionList);
       this.isLoaded = false;
     })
   }
@@ -75,6 +75,16 @@ export class QuestionListComponent implements OnInit {
     {
       Swal.fire("Please Login")
     }
+  }   
 
+  fetchAnswers(id:string){
+    console.log("FUNC CALLED"); 
+    this.qnaService.fetchQuestionById(id).subscribe((data) =>{
+      console.log("Q BY ID",data.data)
+      this.commentService.setData(data.data);
+    })
+  
+    this.router.navigate(['stack/answers']);
+    
   }
 }
