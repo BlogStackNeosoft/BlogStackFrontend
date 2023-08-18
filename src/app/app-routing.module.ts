@@ -24,11 +24,15 @@
     { path: "login", component: LoginComponent },
     { path:"forgot", component: ForgotPasswordComponent },
     { path: "otp", component: OtpValidationComponent },
-    { path: "blogs", component: BlogsComponent },
     { path: "reset", component: ResetPasswordComponent},
     {
-      path: "stack", component: StackComponent,
-      loadChildren: () => import('../app/components/stack/qna/qna.module').then(m => m.QnaModule)
+      path: "stack", component: StackComponent, loadChildren: () => import('../app/components/stack/qna/qna.module').then(m => m.QnaModule)
+    },
+    {
+      path: 'admin',component:AdminDashboardComponent, loadChildren: () => import('../app/components/Admin/admin.module').then(m => m.AdminModule)
+    },
+    {
+      path: 'blogs',component:BlogsComponent, loadChildren: () => import('../app/components/blogs/blog/blog.module').then(m => m.BlogModule)
     },
     { path: "contact", component: ContactComponent },
     { path: "user-list", component: UserListComponent },
@@ -36,9 +40,6 @@
     { path: "update-profile", component: UpdateProfileComponent },
     { path: "category", component: CategoryComponent },
     { path: "service-unavailable", component: ServiceUnavailableComponent },
-    {
-      path: 'admin',component:AdminDashboardComponent, loadChildren: () => import('../app/components/Admin/admin.module').then(m => m.AdminModule)
-    },
     
     //Please dont move this, error component should be last path 
     { path: "**", component: RoutingErrorComponent }
