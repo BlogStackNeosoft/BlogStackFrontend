@@ -20,7 +20,7 @@
         <!-- <div class="row"> -->
         <div *ngFor="let q of questionList">
             <mat-card>
-                <mat-card-content (click)="fetchAnswers()">
+                <mat-card-content (click)="fetchAnswers(q.question_id)">
                     <mat-list>
                         <mat-list-item><b>{{q.title}}</b></mat-list-item>
                         <mat-divider></mat-divider>

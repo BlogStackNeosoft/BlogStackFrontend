@@ -1,19 +1,10 @@
 <div class="container  ques-descrp">
     <div class="row ">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, odio dolor, nobis ducimus temporibus tenetur
-            nostrum sint magnam qui sed odit molestiae suscipit dignissimos, excepturi porro quo minus rem labore!
+        <p>{{qById?.title}}
         </p>
-            <mat-divider></mat-divider>
+        <mat-divider></mat-divider>
         <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut commodi magnam autem accusantium ad amet
-            voluptate facere architecto quae, magni officia cupiditate eos libero possimus nisi odio! Eos,
-            exercitationem illo?
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deserunt autem sed praesentium incidunt veniam
-            porro in accusamus natus neque tempora quos laudantium officia unde, blanditiis amet mollitia, ut harum
-            modi.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, consequuntur optio fugit eos libero
-            consectetur. Neque, ipsam. Voluptas asperiores debitis pariatur quo perferendis, quas, ratione dolorem
-            alias, animi non explicabo?
+           {{qById?.content}}
         </p>
     </div>
     <div class="chip">
@@ -25,51 +16,104 @@
     <div class="chip">
         spring boot
     </div>
+    <div class="col-4 row">
+        
+        <div class="col-3">
+            <img src="https://i.postimg.cc/htn2BgT8/author.png" alt="" />
+        </div>
+        <div class="col-9" style="margin-left: -4%;
+        margin-top: 3%;">
+            <figcaption>
+                <h5 class="sub_title">Dwayne Douglas Johnson </h5>
+                <p>answered <b>sep 12 23:90</b></p>
+            </figcaption>
+        </div>
+        
+    </div>
 </div>
 
 <div class="container">
     <div class="row container d-flex justify-content-around" style="margin-top: 2%;">
         <div class="col-1" style="margin-left: -14%;"></div>
         <div class="col-9">
-                <h3>4 Answers</h3>
-            </div>
+            <h3>4 Answers</h3>
+        </div>
         <div class="col-2 row">
             <div class="col-7">Sorted by :</div>
             <div class="col-5">
-            <button class="menu-btn" mat-button [matMenuTriggerFor]="menu">Highest Score</button>
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item>Trending</button>
-                <button mat-menu-item>Date modified</button>
-                <button mat-menu-item>Date created</button>
-            </mat-menu>
+                <button class="menu-btn" mat-button [matMenuTriggerFor]="menu">Highest Score</button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item>Trending</button>
+                    <button mat-menu-item>Date modified</button>
+                    <button mat-menu-item>Date created</button>
+                </mat-menu>
             </div>
-           </div>
+        </div>
     </div>
 </div>
 
-<div class="ques-descrp">
+<div class="ques-descrp" *ngFor="let a of qById?.answers">
     <mat-card>
         <mat-card-content>
             <div class="container">
                 <div class="row">
                     <div class="col-1" style="margin-left: -2%;
-                    margin-top: -2%;"><div class="icon-cont"><i class="bi bi-caret-up-fill"></i></div>
-                    <div class="container text-center"><h3>56</h3></div>
-                    <div class="icon-cont"><i class="bi bi-caret-down-fill"></i></div>
+                    margin-top: -2%;">
+                        <div class="icon-cont"><i class="bi bi-caret-up-fill"></i></div>
+                        <div class="container text-center">
+                            <h3>56</h3>
                         </div>
-                    <div class="col-11">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores odit, a fugit ipsam amet cum expedita id tempora excepturi nisi illo sed omnis dicta voluptatibus harum iusto sunt assumenda? Cupiditate. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non deserunt tempore eos ea illum? Officiis dolorum, explicabo, et a quis, alias iure repellat consequatur amet similique magni voluptatem quod vero. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam inventore, tempore nostrum accusantium eveniet nisi provident vel nam aspernatur incidunt numquam culpa rem dicta similique voluptatum sint non necessitatibus pariatur.</div>
+                        <div class="icon-cont"><i class="bi bi-caret-down-fill"></i></div>
+                    </div>
+                    <div class="col-11">
+                        {{a.answer}}
+                    </div>
                 </div>
             </div>
-            <div class="container">
+            <div class="container user-cont">
                 <div class="row">
-                    <div class="col-10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem aspernatur consectetur minus. Tenetur eligendi tempora omnis rerum? Nihil soluta nostrum asperiores quibusdam eaque. Officiis, facere voluptas nihil quia libero fugit.</div>
-                    <div class="col-2">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores odit, a fugit ipsam amet cum expedita id.</div>
+                    <div class="col-3 row">
+                        <div class="col" style="margin-right: -18%;">
+                            <a href="#">Share</a> 
+                        </div>
+                        <div class="col" style="margin-right: -22%;">
+                            <a href="#">Edit</a> 
+                        </div>
+                        <div class="col"> 
+                            <a href="#">Follow</a> 
+                        </div>
+                    </div>
+                    <div class="col-5"></div>
+                    <div class="col-4 row">
+                        <!-- <figure> -->
+                        <div class="col-3">
+                            <img src="https://i.postimg.cc/htn2BgT8/author.png" alt="" />
+                        </div>
+                        <div class="col-9" style="margin-left: -4%;
+                        margin-top: 3%;">
+                            <figcaption>
+                                <h5 class="sub_title">Dwayne Douglas Johnson </h5>
+                                <p>answered <b>{{a.added_on}}</b></p>
+                            </figcaption>
+                        </div>
+                        <!-- </figure> -->
+                    </div>
                 </div>
             </div>
-            <div class="container">
-                    <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem aspernatur consectetur minus. Tenetur eligendi tempora omnis rerum? Nihil soluta nostrum asperiores quibusdam eaque. Officiis, facere voluptas nihil quia libero fugit.</div>
-                    <hr>
-                    <div class="col">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores odit, a fugit ipsam amet cum expedita id tempora excepturi nisi illo sed omnis dicta voluptatibus harum iusto sunt assumenda? Cupiditate.</div>
+            <div class="container comments-cont">
+                <div>
+                    <h5>comments</h5>
+                </div>
+                <div class="col">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem aspernatur consectetur
+                    minus. Tenetur eligendi tempora omnis rerum? Nihil soluta nostrum asperiores quibusdam eaque.
+                    Officiis, facere voluptas nihil quia libero fugit.</div>
+                
+                    <i class="bi bi-hand-thumbs-up-fill"></i> <i class="bi bi-hand-thumbs-down-fill"></i>
+                <hr>
+                <div class="col">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores odit, a fugit ipsam
+                    amet cum expedita id tempora excepturi nisi illo sed omnis dicta voluptatibus harum iusto sunt
+                    assumenda? Cupiditate.</div>
+                    <i class="bi bi-hand-thumbs-up-fill"></i> <i class="bi bi-hand-thumbs-down-fill"></i>
             </div>
         </mat-card-content>
     </mat-card>

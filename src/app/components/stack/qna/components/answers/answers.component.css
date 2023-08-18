@@ -39,7 +39,7 @@
 }
 
 .icon-cont{
-    background-color: #dfd3d3;
+    background-color: #f1e6e2;
     border-radius: 50%;
     padding: 1.5%;
     font-size: 46px;
@@ -47,3 +47,34 @@
     transform: scale(0.5);
 }
 
+
+.comments-cont{
+    width: 95%;
+    margin-left: 7%;
+}
+
+.sub_title{
+    /* align-items:center; */
+    font-size:13px;
+    font-family:var(--default_font);
+}
+
+.user-cont{
+    margin-left: 7%;
+}
+
+a {
+    color:#f12b20;
+    text-decoration: none;
+  }
+
+  .bi-hand-thumbs-up-fill{
+    font-size: 20px;
+    margin-right: 2%;
+    cursor: pointer;
+  }
+
+  .bi-hand-thumbs-down-fill{
+    font-size: 20px;
+    cursor: pointer;
+  }

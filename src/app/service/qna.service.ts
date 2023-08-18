@@ -19,5 +19,9 @@ export class QnaService {
     return this.httpClient.post(this.baseUrl, postQuestionBean)
   }
 
+  public fetchQuestionById(questionId: string):Observable<any>{
+    return this.httpClient.get(this.baseUrl+questionId)
+  }
+
   
 }
