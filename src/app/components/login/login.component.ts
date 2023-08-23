@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
       first_name: ['', [Validators.required]],
       last_name: ['', [Validators.required]],
       email_id: ['', [Validators.required,Validators.email]],
-      password: ['', [Validators.required,PasswordStrengthValidator]],
+      password: ['', [Validators.required,Validators.minLength(6),Validators.maxLength(16),PasswordStrengthValidator]],
       confirmPassword: ['', [Validators.required]]
     });
   }
@@ -135,8 +135,6 @@ export const PasswordStrengthValidator = function (control: AbstractControl): Va
 
   console.log("set values", set.values())
 
-  console.log("message", messageGenerator(set));
-
   if (!value) {
     return null
   }
@@ -162,8 +160,12 @@ export const PasswordStrengthValidator = function (control: AbstractControl): Va
     set[3] = "";
 
   }
-  return {
-    passwordStrength: 'Password must contain the following: ' + messageGenerator(set),
+  if (messageGenerator(set)== "") {
+    return null
+  }else{
+    return {
+      passwordStrength: 'Password must contain the following: ' + messageGenerator(set),
+    }
   }
 }
 

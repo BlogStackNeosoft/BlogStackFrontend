@@ -18,8 +18,8 @@
                 <mat-icon matSuffix (click)="showPassword=!showPassword">{{showPassword ?
                   'visibility':'visibility_off'}}</mat-icon>
               </mat-form-field>
-              <p class="message" style="margin-bottom: -5px;" (click)="forgot()">Forgot password?</p>
               </div>
+              <div style="margin-bottom: 5%;"><p class="message"  (click)="forgot()">Forgot password?</p></div>
           </form>
             <button mat-raised-button color="warn" class="btnstyle" [disabled]="!Login.valid"
             (click)="login()">Login</button>

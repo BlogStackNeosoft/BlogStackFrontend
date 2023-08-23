@@ -41,6 +41,11 @@ export class BaseBlogComponent implements OnInit {
   }
 
   postBlogs(){
+    // if (this.user==null) {
+    //   Swal.fire("please login").then(()=>{
+    //     this.router.navigate(["/login"])
+    //   })
+    // }
     this.router.navigate(["blogs/post-blogs"]);
   }
 

@@ -4,7 +4,7 @@
     <!-- <mat-toolbar> -->
     <div style="display: flex; flex-wrap: wrap; flex-direction: row; justify-content: space-between;">
         <div *ngIf="navBarActive==true">
-            <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+            <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()" style="padding-top: 35%;">
                 <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
                 <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
             </button>

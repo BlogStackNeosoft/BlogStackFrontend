@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatStepperModule } from '@angular/material/stepper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-blogs',
@@ -12,16 +13,35 @@ import { MatStepperModule } from '@angular/material/stepper';
 })
 export class PostBlogsComponent implements OnInit {
 
-  constructor(private _formBuilder: FormBuilder) { }
+  blogForm !: FormGroup;
+  isOptional = true;
+
+  tagCtrl = new FormControl();
+
+  constructor(private fb: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  firstFormGroup = this._formBuilder.group({
-    firstCtrl: ['', Validators.required],
+  firstFormGroup = this.fb.group({
+    titleCtrl : ['', [Validators.required]],
   });
-  secondFormGroup = this._formBuilder.group({
-    secondCtrl: ['', Validators.required],
+
+  secondFormGroup = this.fb.group({
+    imageCtrl : ['', [Validators.required]],
   });
+
+  thirdFormGroup = this.fb.group({
+    contentCtrl: ['', Validators.required],
+  });
+
+  fourthFormGroup = this.fb.group({
+    codeCtrl: ''
+  });
+
   isLinear = false;
+
+  postBlog(){
+    // this.router.navigate
+  }
 }

@@ -23,6 +23,11 @@ mat-tab-group{
   cursor: pointer;
 }
 
+p {
+  margin-top: -13px;
+  margin-bottom: 0rem;
+}
+
 
 .mat-icon{
   font-size: large;
