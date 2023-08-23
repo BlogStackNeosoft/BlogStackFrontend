@@ -49,8 +49,8 @@
 
 
 .comments-cont{
-    width: 95%;
-    margin-left: 7%;
+    margin-left: -1%;
+    width: 104%;
 }
 
 .sub_title{
@@ -60,7 +60,9 @@
 }
 
 .user-cont{
-    margin-left: 7%;
+    margin-left: -1%;
+    width: 106%;
+    margin-top: 1%;
 }
 
 a {
