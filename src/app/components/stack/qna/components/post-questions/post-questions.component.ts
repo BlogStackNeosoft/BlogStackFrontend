@@ -39,7 +39,7 @@ export class PostQuestionsComponent implements OnInit {
   });
   secondFormGroup = this.fb.group({
     categoryCtrl: ['', [Validators.required]],
-    subcategoryCtrl: ['', [Validators.required]],
+    // subcategoryCtrl: ['', [Validators.required]],
     // tagCtrl: ['', Validators.required],
   });
   thirdFormGroup = this.fb.group({

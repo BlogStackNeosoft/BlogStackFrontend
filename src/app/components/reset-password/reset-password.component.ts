@@ -25,7 +25,7 @@ export class ResetPasswordComponent implements OnInit {
 
   initResetForm() {
     this.Reset = this.formBuilder.group({
-      password: ['',[Validators.required,PasswordStrengthValidator]],
+      password: ['', [Validators.required,Validators.minLength(6),Validators.maxLength(16),PasswordStrengthValidator]],
       confirmPassword: ['',[Validators.required]]
     })
   }
@@ -80,8 +80,12 @@ export const PasswordStrengthValidator = function (control: AbstractControl): Va
     set[3] = "";
 
   }
-  return {
-    passwordStrength: 'Password must contain the following: ' + messageGenerator(set),
+  if (messageGenerator(set)== "") {
+    return null
+  }else{
+    return {
+      passwordStrength: 'Password must contain the following: ' + messageGenerator(set),
+    }
   }
 }
 

@@ -64,10 +64,16 @@
 
         <mat-step>
           <ng-template matStepLabel>Done</ng-template>
-          <p>You are now done.</p>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+          <p>You are now done.</p><br><br>
+          <div class="container">
+            <div class="row">
+              <div class="col"> <button mat-raised-button type="button"  matStepperPrevious>Back</button>
+              </div>
+              <div class="col"><button mat-raised-button type="button" 
+                  (click)="stepper.reset()">Reset</button></div>
+              <div class="col"><button mat-raised-button type="button" color="warn"
+                  (click)="postBlog()">submit</button></div>
+            </div>
           </div>
         </mat-step>
       </mat-stepper>    
