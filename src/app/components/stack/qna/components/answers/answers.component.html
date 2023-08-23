@@ -32,18 +32,16 @@
         <h3>4 Answers</h3>
       </div>
       <div class="col-2 row">
-        <div class="col-7">Sorted by </div>
+        <!-- <div class="col-7">Sorted by </div> -->
         <div class="col-5">
-              <button class="menu-btn" mat-button  [matMenuTriggerFor]="menu">
-                  {{selectedMenu}}
-              </button>
-              <mat-menu #menu="matMenu"   
-              *ngFor="let item of menuListItems" 
-            (click)="clickMenuItem(item)">
-              <button mat-menu-item>{{item}}</button>
-              <button mat-menu-item>Date modified</button>
-              <button mat-menu-item>Date created</button>
-              </mat-menu>
+            <mat-form-field>
+                <mat-label>Sorted by</mat-label>
+                <mat-select>
+                  <mat-option *ngFor="let item of menuListItems" [value]="item">
+                    {{item}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
         </div>
       </div>
     </div>
@@ -70,9 +68,7 @@
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque rem numquam id amet! Beatae, itaque eligendi harum aliquid molestias porro sed quibusdam explicabo reiciendis. Minus ipsum autem voluptate libero.
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum id
               ipsum consequuntur possimus pariatur nesciunt repellendus amet,
-              inventore eum! Amet vitae quis architecto nobis doloribus provident
-              ea rerum culpa maiores.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque rem numquam id amet! Beatae, itaque eligendi harum aliquid molestias porro sed quibusdam explicabo reiciendis. Minus ipsum autem voluptate libero.
+              
   
               <div class="container user-cont">
                 <div class="row">
