@@ -42,9 +42,6 @@ export class QuestionListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource = new MatTableDataSource<Question>(this.questionList);
 
-  //   constructor(
-  //     private router: Router,
-  // ) { }
 
   // ngOnInit(): void {
   //   this.role = localStorage?.getItem("role")
@@ -73,7 +70,9 @@ export class QuestionListComponent implements OnInit {
       this.router.navigate(["stack/post-question"]);
     }else
     {
-      Swal.fire("Please Login")
+      Swal.fire("Please Login").then(()=>{
+        this.router.navigate(['/login'])
+      })
     }
   }   
 

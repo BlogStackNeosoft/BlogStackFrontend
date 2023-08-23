@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatMenu } from '@angular/material/menu';
 import { Router } from '@angular/router';
 import { Question } from 'src/app/model/model';
 import { CommonSharedService } from 'src/app/service/common-shared.service';
@@ -14,6 +15,12 @@ export class AnswersComponent implements OnInit {
   qById! : Question;
   constructor(private commonService: CommonSharedService, private router: Router) { }
 
+  menuListItems : string[] = ["Highest Score","Trending","Date modified","Date created"];
+  selectedMenu !: string;
+
+  @ViewChild('menu', { static: true })
+  menu!: MatMenu;
+
   ngOnInit(): void {
    this.commonService.getData().subscribe(data=>{
     this.qById = data;
@@ -28,7 +35,8 @@ export class AnswersComponent implements OnInit {
     })
   }
 
-
-
-
+  clickMenuItem(menuItem : string){
+    console.log(menuItem);
+    this.selectedMenu = menuItem;
+}
 }
