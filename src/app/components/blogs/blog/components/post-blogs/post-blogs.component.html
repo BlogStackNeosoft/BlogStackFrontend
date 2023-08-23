@@ -1,50 +1,79 @@
 <div class="container">
     <div class="text-center"><h3>Post Blog</h3></div>
-      <mat-stepper [linear]="isLinear" #stepper>
-        <mat-step [stepControl]="firstFormGroup">
-          <form [formGroup]="firstFormGroup">
-            <ng-template matStepLabel>Blog name</ng-template>
-            <mat-form-field>
-              <mat-label>Name</mat-label>
-              <input matInput placeholder="Blog name" formControlName="firstCtrl" required>
-            </mat-form-field>
-            <div>
-              <button mat-button matStepperNext>Next</button>
-            </div>
-          </form>
-        </mat-step>
-        <mat-step [stepControl]="secondFormGroup" label="Please upload image">
-          <form [formGroup]="secondFormGroup">
-            <mat-form-field>
+
+    <mat-stepper class="stepper" linear #stepper>
+      <mat-step [stepControl]="firstFormGroup" completed="false">
+        <div class="container text-center">
+          <div class="row">
+            <form [formGroup]="firstFormGroup">
+              <ng-template matStepLabel>Post name</ng-template>
+
+              <mat-form-field class="question-form">
+                <mat-label>Post Title</mat-label>
+                <textarea class="question-area" matInput matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10" formControlName="titleCtrl"></textarea>
+              </mat-form-field>
+
+              <div class="container text-center">
+                <button mat-raised-button type="button" color="warn" matStepperNext>Next</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </mat-step>
+
+        <mat-step [stepControl]="secondFormGroup" completed="false">
+          <div class="container text-center">
+            <div class="row">
+            <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Please upload image here</ng-template>
+
+            <mat-form-field class="question-form">
               <mat-label>image</mat-label>
-              <input matInput formControlName="secondCtrl" placeholder="upload image"
-                     required>
+              <textarea class="question-area" matInput matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10" formControlName="imageCtrl"></textarea>
             </mat-form-field>
             <div>
               <button mat-button matStepperPrevious>Back</button>
-              <button mat-button matStepperNext>Next</button>
+              <button mat-raised-button type="button" color="warn" matStepperNext>Next</button>
             </div>
           </form>
+          </div>
+          </div>
         </mat-step>
-        <mat-step [stepControl]="secondFormGroup" label="Add content">
-            <form [formGroup]="secondFormGroup">
-              <mat-form-field>
+
+        <mat-step [stepControl]="thirdFormGroup" completed="false">
+          <div class="container text-center">
+            <div class="row">
+            <form [formGroup]="thirdFormGroup">
+              <ng-template matStepLabel>Please add content here</ng-template>
+
+              <mat-form-field class="question-form">
                 <mat-label>content</mat-label>
-                <input matInput formControlName="secondCtrl" placeholder="content"
-                       required>
+                <textarea class="question-area" matInput matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize"
+                  cdkAutosizeMinRows="5" cdkAutosizeMaxRows="10" formControlName="contentCtrl"></textarea>
               </mat-form-field>
               <div>
                 <button mat-button matStepperPrevious>Back</button>
-                <button mat-button matStepperNext>Next</button>
+                <button mat-raised-button type="button" color="warn" matStepperNext>Next</button>
               </div>
             </form>
+            </div>
+            </div>
           </mat-step>
+
         <mat-step>
           <ng-template matStepLabel>Done</ng-template>
-          <p>You are now done.</p>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button (click)="stepper.reset()">Reset</button>
+          <p>You are now done.</p><br><br>
+          <div class="container">
+            <div class="row">
+              <div class="col"> <button mat-raised-button type="button"  matStepperPrevious>Back</button>
+              </div>
+              <div class="col"><button mat-raised-button type="button" 
+                  (click)="stepper.reset()">Reset</button></div>
+              <div class="col"><button mat-raised-button type="button" color="warn"
+                  (click)="postBlog()">submit</button></div>
+            </div>
           </div>
         </mat-step>
       </mat-stepper>    

@@ -3,17 +3,15 @@
     </h2>
     <ul class="menu_items">
         <img src="../../assets/times.svg" alt="timesicon" id="menu_toggle" />
-        <li class="nav_link m-2"><a routerLink="/home" class="nav_link"><b>Home</b></a></li>
-        <li class="nav_link  m-2"><a routerLink="/about" class=" nav_link"><b>About</b></a></li>
+        <li class="nav_link m-3"><a routerLink="/home" class="nav_link"><b>HOME</b></a></li>
+        <li class="nav_link  m-3"><a routerLink="/about" class=" nav_link"><b>ABOUT</b></a></li>
 
-        <li class="nav_link  m-2"><a routerLink="/blogs" class="nav_link"><b>Blogs</b></a></li>
-        <li class="nav_link  m-2"><a routerLink="/stack" class="nav_link"><b>Stack</b></a></li>
-        <li class="nav_link  m-2"><a routerLink="/contact" class="nav_link"><b>Contact</b></a></li>
-        <li class="nav_link  m-2" *ngIf="role=='admin'"><a routerLink="/contact" class="nav_link"><b>Admin
-                    DashBoard</b></a></li>
-        <li class="nav_link  m-2"><a (click)="toggleSignIn()" class="nav_link"><b *ngIf="role!=null"
-                    style="cursor: pointer;text-decoration: underline;">SignOut</b>
-                <b *ngIf="role==null" style="cursor: pointer;">SignIn</b></a></li>
+        <li class="nav_link  m-3"><a routerLink="/blogs" class="nav_link"><b>BLOG</b></a></li>
+        <li class="nav_link  m-3"><a routerLink="/stack" class="nav_link"><b>STACK</b></a></li>
+        <li class="nav_link  m-3"><a routerLink="/contact" class="nav_link"><b>CONTACT</b></a></li>
+        <li class="nav_link  m-3"><a (click)="toggleSignIn()" class="nav_link"><b *ngIf="role!=null"
+                    style="cursor: pointer;text-decoration: underline;">SIGNOUT</b>
+                <b *ngIf="role==null" style="cursor: pointer;">SIGNIN</b></a></li>
     </ul>
     <img src="../../assets/bars.svg" alt="timesicon" id="menu_toggle" />
 </nav>
