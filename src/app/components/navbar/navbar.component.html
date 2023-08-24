@@ -1,11 +1,14 @@
 
 <mat-toolbar>
     <div *ngIf="navBarActive==true">
-      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+      <button mat-icon-button aria-label="Example icon-button with menu icon" *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
         <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
         <mat-icon *ngIf="sidenav.opened">close</mat-icon>
       </button>
     </div>
+    <div *ngIf="navBarActive==false" style="padding-left: 3%;">
+
+        </div>
       <span> <img src="../../../assets/logo.jpg" alt="" style="width: 250px; height: 65px; padding-left: 10%;"></span>
       <span style="padding-left: 31%;"></span>
       <ul class="menu_items pt-3">
