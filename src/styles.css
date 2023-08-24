@@ -8,14 +8,16 @@
   font-family: "Poppins", sans-serif;
  
 }
-
+button{
+  color: #008080;
+}
 .menu_items {
   display: flex;
   list-style: none;
 }
 
 a {
-  color:#f12b20;
+  color:#9fc5e8;
   text-decoration: none;
 }
 
