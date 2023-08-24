@@ -100,7 +100,7 @@ import { BlogModule } from './components/blogs/blog/blog.module';
        
     ],
 
-exports: [StackComponent, BlogsComponent],
+exports: [StackComponent, BlogsComponent,NavbarComponent],
 
 providers: [AuthService,
   { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },

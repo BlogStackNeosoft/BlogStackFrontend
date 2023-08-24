@@ -6,14 +6,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
-   /* overflow: visible;  */
-   /* background-color: white;  */
+ 
 }
 
 .menu_items {
   display: flex;
   list-style: none;
-   /* gap: 8%;  */
 }
 
 a {
@@ -24,11 +22,10 @@ a {
 #menu_toggle {
   display: none;
 }
-/* 
- button{
-    color: #f12b20;
-  } */
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; 
+ }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
+ 
+}
