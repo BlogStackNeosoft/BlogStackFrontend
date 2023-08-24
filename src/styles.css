@@ -16,9 +16,10 @@ button{
   list-style: none;
 }
 
-a {
-  color:#9fc5e8;
+a{
   text-decoration: none;
+    color:#4091de;
+  cursor: pointer;
 }
 
 #menu_toggle {
