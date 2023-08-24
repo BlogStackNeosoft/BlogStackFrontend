@@ -1,17 +1,67 @@
-<nav class="nav">
-    <h2 class="nav_logo text"><a href="#"><a style="color: black;">Blog</a><a style="color:#f12b20;">Stack</a></a>
-    </h2>
-    <ul class="menu_items">
-        <img src="../../assets/times.svg" alt="timesicon" id="menu_toggle" />
-        <li class="nav_link m-3"><a routerLink="/home" class="nav_link"><b>HOME</b></a></li>
-        <li class="nav_link  m-3"><a routerLink="/about" class=" nav_link"><b>ABOUT</b></a></li>
 
-        <li class="nav_link  m-3"><a routerLink="/blogs" class="nav_link"><b>BLOG</b></a></li>
-        <li class="nav_link  m-3"><a routerLink="/stack" class="nav_link"><b>STACK</b></a></li>
-        <li class="nav_link  m-3"><a routerLink="/contact" class="nav_link"><b>CONTACT</b></a></li>
-        <li class="nav_link  m-3"><a (click)="toggleSignIn()" class="nav_link"><b *ngIf="role!=null"
-                    style="cursor: pointer;text-decoration: underline;">SIGNOUT</b>
+<mat-toolbar>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span> <img src="../../../assets/logo.jpg" alt="" style="width: 250px; height: 65px; padding-left: 10%;"></span>
+      <span style="padding-left: 31%;"></span>
+      <ul class="menu_items pt-3">
+      
+        <li class="nav_link m-4"><a routerLink="/home" class="nav_link"><b>HOME</b></a></li>
+        <li class="nav_link  m-4"><a routerLink="/about" class=" nav_link"><b>ABOUT</b></a></li>
+
+        <li class="nav_link  m-4"><a routerLink="/blogs" class="nav_link"><b>BLOG</b></a></li>
+        <li class="nav_link  m-4"><a routerLink="/stack" class="nav_link"><b>STACK</b></a></li>
+        <li class="nav_link  m-4"><a routerLink="/contact" class="nav_link"><b>CONTACT</b></a></li>
+        <li class="nav_link  m-4"><a (click)="toggleSignIn()" class="nav_link"><b *ngIf="role!=null"
+                style="cursor: pointer;text-decoration: underline;">SIGNOUT</b>
                 <b *ngIf="role==null" style="cursor: pointer;">SIGNIN</b></a></li>
     </ul>
-    <img src="../../assets/bars.svg" alt="timesicon" id="menu_toggle" />
-</nav>
+</mat-toolbar>
+
+  <mat-sidenav-container style="background-color: white;">
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8" (click)="sidenav.toggle()" style="background-color: #f5f5f5;">
+        <img class="avatar" src="../../../assets/admin.png" /> <i class="bi bi-pencil-square" style="color: black;"
+            (click)="updateProfile()" *ngIf="role!=null"></i>
+        <h4 class="name">Admin</h4>
+
+        <app-user-profile></app-user-profile>
+
+        <button mat-button class="menu-button" routerLink="">
+            <mat-icon>home</mat-icon>
+            <span>Home</span></button>
+
+        <button mat-button class="menu-button" *ngIf="role=='admin'">
+            <mat-icon>perm_identity</mat-icon>
+            <span>Admin</span></button>
+
+        <button mat-button class="menu-button" routerLink="/login" *ngIf="role==null">
+            <mat-icon>person</mat-icon>
+            <span>Login</span></button>
+
+        <button mat-button class="menu-button" routerLink="/stack" *ngIf="role!='admin'">
+            <mat-icon>dashboard</mat-icon>
+            <span>Stack</span>
+        </button>
+
+        <button mat-button class="menu-button" routerLink="" *ngIf="role=='admin'">
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span></button>
+
+        <button mat-button class="menu-button" routerLink="/contact">
+            <mat-icon>help</mat-icon>
+            <span>Help</span></button>
+
+        <button mat-button class="menu-button" (click)="logout()" *ngIf="role !=null">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span></button>
+
+    </mat-sidenav>
+    <mat-sidenav-content style="padding-top: 2;">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+  
+
+  

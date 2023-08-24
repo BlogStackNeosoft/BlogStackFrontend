@@ -1,9 +1,10 @@
-<mat-sidenav-container class="tp-container">
+<div class="container-fluid">
+<mat-sidenav-container>
    <mat-sidenav mode="side" [opened]="true">
-      <section class="tp-section">
+      <section >
          <span><a routerLink="question-list">Questions</a></span>
       </section>
-      <section class="tp-section">
+      <section >
          <span><a routerLink="categories">Categories</a></span>
       </section>
    </mat-sidenav>
@@ -11,3 +12,6 @@
       <router-outlet></router-outlet>
    </mat-sidenav-content>
 </mat-sidenav-container>
+
+   
+</div>

@@ -1,27 +1,27 @@
-import { NgModule } from '@angular/core';
+import { TextFieldModule } from '@angular/cdk/text-field';
 import { CommonModule } from '@angular/common';
-import { PostQuestionsComponent } from './components/post-questions/post-questions.component';
-import { QnaRoutingModule } from './qna-routing.module';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatStepperModule } from '@angular/material/stepper';
-import { MatSidenavContent, MatSidenavModule } from '@angular/material/sidenav';
-import { MatSelectModule } from '@angular/material/select';
-import { MatChipInputEvent, MatChipsModule } from '@angular/material/chips';
-import { CdkTextareaAutosize, TextFieldModule } from '@angular/cdk/text-field';
-import { MatAutocompleteSelectedEvent, MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatIconModule } from '@angular/material/icon';
-import { QuestionListComponent } from './components/question-list/question-list.component';
-import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
-import { MatListModule } from '@angular/material/list';
+import { MatChipsModule } from '@angular/material/chips';
 import { MatDividerModule } from '@angular/material/divider';
-import { CategoryComponent } from './components/category/category.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatStepperModule } from '@angular/material/stepper';
 import { AnswersComponent } from './components/answers/answers.component';
-import {MatMenuModule} from '@angular/material/menu';
+import { CategoryComponent } from './components/category/category.component';
+import { PostQuestionsComponent } from './components/post-questions/post-questions.component';
+import { QuestionListComponent } from './components/question-list/question-list.component';
+import { QnaRoutingModule } from './qna-routing.module';
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import {MatMenuModule} from '@angular/material/menu';
     PostQuestionsComponent,
     QuestionListComponent,
     CategoryComponent,
-    AnswersComponent
+    AnswersComponent,
   ],
   imports: [
     CommonModule,

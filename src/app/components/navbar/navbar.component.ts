@@ -32,4 +32,14 @@ export class NavbarComponent implements OnInit {
       })
     }
   }
+
+  updateProfile() {
+    this.router.navigate(["update-profile"])
+  }
+
+  
+  logout() {
+    localStorage.clear();
+    Swal.fire('Successfully Logout').then(() => { this.router.navigate([""]) })
+  }
 }
