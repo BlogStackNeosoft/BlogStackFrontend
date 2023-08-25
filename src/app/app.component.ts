@@ -36,21 +36,21 @@ export class AppComponent {
 
   ngAfterContentChecked() {
     this.role = localStorage?.getItem("role")
-    console.log("the role value is", this.navBarActive)
+  
     this.navBarActive = false
 
-    console.log("the role value is", this.navBarActive)
+    
 
     if (this.router.routerState.root.firstChild?.routeConfig?.path == "blogs") {
       this.navBarActive = true
 
-      console.log("the role value is", this.navBarActive)
+     
 
     }
     else if (this.router.routerState.root.firstChild?.routeConfig?.path == "stack") {
       this.navBarActive = true
 
-      console.log("the role value is", this.navBarActive)
+  
 
     }
     // else {

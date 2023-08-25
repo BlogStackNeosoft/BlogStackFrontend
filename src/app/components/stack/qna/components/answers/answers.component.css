@@ -45,6 +45,7 @@
     font-size: 46px;
     padding-left: 20%;
     transform: scale(0.5);
+    cursor: pointer;
 }
 
 
@@ -66,7 +67,7 @@
 }
 
 a {
-    color:#f12b20;
+    color:#4091de;
     text-decoration: none;
   }
 
@@ -74,6 +75,7 @@ a {
     font-size: 20px;
     margin-right: 2%;
     cursor: pointer;
+    
   }
 
   .bi-hand-thumbs-down-fill{

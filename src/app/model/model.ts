@@ -84,6 +84,7 @@ export interface Answer {
   answer_id: string
   comments: any[]
   added_on: string
+  upvote: number
 }
 
 export interface PostQuestionBean{

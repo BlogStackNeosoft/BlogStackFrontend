@@ -72,9 +72,7 @@ export class QuestionListComponent implements OnInit {
     //   })
     // }else
     {
-      Swal.fire("Please Login").then(()=>{
-        this.router.navigate(['/login'])
-      })
+        this.router.navigate(['/stack/post-question'])
     }
   }   
 

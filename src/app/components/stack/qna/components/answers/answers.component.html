@@ -29,7 +29,7 @@
     >
       <div class="col-1" style="margin-left: -14%"></div>
       <div class="col-9">
-        <h3>4 Answers</h3>
+        <h3>{{qById?.answers?.length}} Answers</h3>
       </div>
       <div class="col-2 row">
         <!-- <div class="col-7">Sorted by </div> -->
@@ -47,29 +47,24 @@
     </div>
   </div>
   
-  <div class="ques-descrp">
+  <div class="ques-descrp" *ngFor="let a of qById?.answers;let i=index;">
     <mat-card>
       <mat-card-content>
-        <div class="container">
+        <div class="container"> 
           <div class="row">
             <div class="col-1" style="margin-left: -2%; margin-top: -2%">
-              <div class="icon-cont"><i class="bi bi-caret-up-fill"></i></div>
-              <div class="container text-center">
-                <h3>56</h3>
+              <div>
+                <div class="icon-cont"><i class="bi bi-caret-up-fill" (click)="upvote(i)"></i></div>
+                <div class="container text-center">
+                  <h3>{{votes[i]}}</h3>
+                </div>
+                <div class="icon-cont"><i class="bi bi-caret-down-fill" (click)="downvote(i)"></i></div>
+  
               </div>
-              <div class="icon-cont"><i class="bi bi-caret-down-fill"></i></div>
             </div>
   
             <div class="col-11">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum id
-              ipsum consequuntur possimus pariatur nesciunt repellendus amet,
-              inventore eum! Amet vitae quis architecto nobis doloribus provident
-              ea rerum culpa maiores.
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque cumque rem numquam id amet! Beatae, itaque eligendi harum aliquid molestias porro sed quibusdam explicabo reiciendis. Minus ipsum autem voluptate libero.
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum id
-              ipsum consequuntur possimus pariatur nesciunt repellendus amet,
-              
-  
+              {{a.answer}}
               <div class="container user-cont">
                 <div class="row">
                   <div class="col-3 row">
@@ -94,7 +89,7 @@
                     <div class="col-9" style="margin-left: -4%; margin-top: 3%">
                       <figcaption>
                         <h5 class="sub_title">Dwayne Douglas Johnson</h5>
-                        <p>answered <b>22 aug 4:37pm</b></p>
+                        <p>answered <b>{{a.added_on}}</b></p>
                       </figcaption>
                     </div>
                   </div>
