@@ -4,7 +4,7 @@
 }
 
 ::ng-deep .mat-step-header .mat-step-icon-selected {
-  background-color: #f12b20;
+  background-color: black;
   color: white;
 }
 
